@@ -1,0 +1,211 @@
+/* ===================================================================
+   NORTHBRIDGE — HERO CAROUSEL
+   Builds on tokens.css. All classes prefixed nb-hero-.
+   =================================================================== */
+
+.nb-hero {
+  position: relative;
+  background: var(--color-bg);
+  padding: var(--space-2);
+  isolation: isolate;
+}
+
+.nb-hero-track {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  /* Matches reference exactly: small 10px radius on 3 corners, one large
+     113px scoop on the bottom-left. No separate overlay shape is needed —
+     overflow:hidden clips the slide images to this shape, and the hero's
+     own background (var(--color-bg)) shows through the carved corner. */
+  border-radius: 10px 10px 10px 113px;
+  overflow: hidden;
+}
+
+.nb-hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .7s ease;
+  display: flex;
+  align-items: center;
+}
+
+.nb-hero-slide.is-active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 1;
+}
+
+.nb-hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.nb-hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to right,
+    rgba(10, 11, 13, 0.82) 0%,
+    rgba(10, 11, 13, 0.62) 35%,
+    rgba(10, 11, 13, 0.18) 58%,
+    rgba(10, 11, 13, 0) 68%
+  );
+}
+
+.nb-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 620px;
+  color: #fff;
+}
+
+.nb-hero-heading {
+  font-size: clamp(1.9rem, 1.2rem + 2.6vw, 3rem);
+  font-weight: 800;
+  line-height: var(--lh-tight);
+  margin-bottom: var(--space-2);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+}
+
+.nb-hero-subheading {
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: var(--lh-normal);
+  margin-bottom: var(--space-3);
+  max-width: 480px;
+}
+
+.nb-hero-cta {
+  font-size: var(--fs-body);
+}
+
+/* ---- Arrows ---- */
+.nb-hero-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(21, 23, 26, 0.35);
+  color: #fff;
+  font-size: 1rem;
+  transition: background .18s ease, transform .18s ease;
+}
+
+.nb-hero-arrow:hover {
+  background: var(--color-primary);
+}
+
+.nb-hero-arrow--prev {
+  left: var(--space-3);
+}
+
+.nb-hero-arrow--next {
+  right: var(--space-3);
+}
+
+/* ---- Dots ----
+   Reference check: on the live site the dots sit INSIDE the same centered
+   .container used for the heading/CTA — not hugging the image's bottom-left
+   corner. That's why they never cross the 113px curve: the container's
+   left edge is always well to the right of such a small corner radius.
+   Match that here by computing the same left offset .container would have,
+   instead of a fixed pixel value tied to the track's corner. */
+.nb-hero-dots {
+  position: absolute;
+  left: max(var(--container-pad), calc((100% - var(--container-max)) / 2 + var(--container-pad)));
+  bottom: 40px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nb-hero-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.75);
+  background: transparent;
+  padding: 0;
+  transition: background .18s ease, border-color .18s ease, transform .18s ease;
+}
+
+.nb-hero-dot:hover {
+  transform: scale(1.15);
+}
+
+.nb-hero-dot.is-active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .nb-hero-track {
+    height: clamp(420px, 70vw, 480px);
+    border-radius: 8px 8px 8px 90px;
+  }
+
+  .nb-hero-dots {
+    bottom: 28px;
+  }
+
+  .nb-hero-content {
+    max-width: 90%;
+  }
+
+  .nb-hero-overlay {
+    background: linear-gradient(
+      to right,
+      rgba(10, 11, 13, 0.85) 0%,
+      rgba(10, 11, 13, 0.68) 55%,
+      rgba(10, 11, 13, 0.35) 85%,
+      rgba(10, 11, 13, 0.2) 100%
+    );
+  }
+}
+
+@media (max-width: 600px) {
+  .nb-hero {
+    padding: var(--space-1);
+  }
+
+  .nb-hero-track {
+    height: clamp(380px, 95vw, 460px);
+    border-radius: 6px 6px 6px 64px;
+  }
+
+  .nb-hero-dots {
+    /* At narrow widths the container has no centering margin to push dots
+       past the 64px corner curve, so they must instead hug the true
+       bottom edge (small "bottom" keeps them outside the arc regardless
+       of left offset — see hero.css comment above .nb-hero-dots). */
+    bottom: 12px;
+  }
+
+  .nb-hero-arrow {
+    width: 36px;
+    height: 36px;
+    font-size: 0.85rem;
+  }
+
+  .nb-hero-subheading {
+    max-width: 100%;
+  }
+}

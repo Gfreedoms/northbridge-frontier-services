@@ -1,0 +1,103 @@
+/* ===================================================================
+   NORTHBRIDGE — ABOUT / TRUST SPLIT SECTION
+   Image one side, mission copy + stat boxes + CTA on the other.
+   =================================================================== */
+
+.nb-about {
+  background: var(--color-bg);
+}
+
+.nb-about-inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+}
+
+.nb-about-media {
+  flex: 1 1 0;
+}
+
+.nb-about-img {
+  width: 100%;
+  height: 100%;
+  max-height: 480px;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.nb-about-content {
+  flex: 1 1 0;
+}
+
+.nb-about-eyebrow {}
+
+.nb-about-heading {
+  font-size: var(--fs-h2);
+  font-weight: 700;
+  line-height: var(--lh-tight);
+  margin-bottom: var(--space-2);
+}
+
+.nb-about-text {
+  color: var(--color-muted);
+  margin-bottom: var(--space-3);
+}
+
+/* ---- Stat boxes ---- */
+.nb-about-stats {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.nb-about-stat {
+  flex: 1 1 200px;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-surface);
+}
+
+.nb-about-stat i {
+  font-size: 1.4rem;
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.nb-about-stat span {
+  font-weight: 600;
+  font-size: var(--fs-small);
+  line-height: var(--lh-tight);
+}
+
+.nb-about-btn {}
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .nb-about-inner {
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+  .nb-about-media,
+  .nb-about-content {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+  .nb-about-img {
+    max-height: 340px;
+  }
+}
+
+@media (max-width: 560px) {
+  .nb-about-stats {
+    flex-direction: column;
+  }
+  .nb-about-stat {
+    flex: 1 1 auto;
+  }
+}

@@ -1,0 +1,68 @@
+/* ===================================================================
+   NORTHBRIDGE — PROMO BANNER (dog & patrol support)
+   Full-bleed photo background, bottom-left anchored text + CTA.
+   =================================================================== */
+
+.nb-promo {
+  position: relative;
+  min-height: 400px;
+  display: flex;
+  align-items: flex-end;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.nb-promo-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top right,
+    rgba(21, 23, 26, 0.88) 0%,
+    rgba(21, 23, 26, 0.55) 40%,
+    rgba(21, 23, 26, 0) 75%
+  );
+  z-index: 1;
+}
+
+.nb-promo-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding-block: var(--space-4);
+}
+
+.nb-promo-content {
+  max-width: 480px;
+  color: #fff;
+}
+
+.nb-promo-heading {
+  font-size: var(--fs-h2);
+  font-weight: 700;
+  line-height: var(--lh-tight);
+  color: #fff;
+  margin-bottom: var(--space-1);
+}
+
+.nb-promo-text {
+  font-size: var(--fs-body);
+  color: rgba(255, 255, 255, 0.88);
+  margin-bottom: var(--space-3);
+}
+
+.nb-promo-btn {}
+
+/* ---- Responsive ---- */
+@media (max-width: 600px) {
+  .nb-promo {
+    min-height: 360px;
+  }
+  .nb-promo-inner {
+    padding-block: var(--space-3);
+  }
+  .nb-promo-content {
+    max-width: 100%;
+  }
+}

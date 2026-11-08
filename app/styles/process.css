@@ -1,0 +1,89 @@
+/* ===================================================================
+   HOW IT WORKS SECTION — 4-step engagement process
+   Light background (inherits --color-bg from body). Relies on tokens.css
+   for .container, .section, .section-heading, .card.
+   =================================================================== */
+
+.nb-process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-3);
+  position: relative;
+  counter-reset: none;
+}
+
+/* Thin connecting line behind the step badges, desktop only */
+.nb-process-grid::before {
+  content: "";
+  position: absolute;
+  top: 56px; /* vertical center of the step badge */
+  left: calc(12.5% + 0px);
+  right: calc(12.5% + 0px);
+  height: 2px;
+  background: var(--color-border);
+  z-index: 0;
+}
+
+.nb-process-grid-item {
+  position: relative;
+  z-index: 1;
+}
+
+.nb-process-card {
+  height: 100%;
+  padding: var(--space-4) var(--space-3) var(--space-3);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nb-process-step-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 1;
+  margin-bottom: var(--space-2);
+  flex-shrink: 0;
+}
+
+.nb-process-step-title {
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  margin-bottom: var(--space-1);
+  color: var(--color-ink);
+}
+
+.nb-process-step-desc {
+  font-size: var(--fs-small);
+  color: var(--color-muted);
+  margin: 0;
+}
+
+/* ---- Tablet: 2 columns ---- */
+@media (max-width: 992px) {
+  .nb-process-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3) var(--space-2);
+  }
+  .nb-process-grid::before {
+    display: none;
+  }
+}
+
+/* ---- Mobile: 1 column ---- */
+@media (max-width: 600px) {
+  .nb-process-grid {
+    grid-template-columns: 1fr;
+  }
+  .nb-process-card {
+    padding: var(--space-3) var(--space-3) var(--space-2);
+  }
+}

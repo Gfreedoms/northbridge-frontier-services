@@ -1,0 +1,140 @@
+/* ===================================================================
+   NORTHBRIDGE — CTA BANNER (site assessment pitch)
+   Full-bleed photo background, dark overlay, decorative circle graphic.
+   =================================================================== */
+
+.nb-cta {
+  position: relative;
+  min-height: 460px;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  color: #fff;
+}
+
+.nb-cta-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(21, 23, 26, 0.72);
+  z-index: 1;
+}
+
+.nb-cta-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+  padding-block: var(--space-5);
+}
+
+.nb-cta-content {
+  max-width: 480px;
+}
+
+.nb-cta-eyebrow {
+  display: inline-block;
+  font-size: var(--fs-small);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--color-primary);
+  padding: 4px 14px;
+  border-radius: var(--radius-pill);
+  margin-bottom: var(--space-2);
+}
+
+.nb-cta-heading {
+  font-size: var(--fs-h2);
+  font-weight: 700;
+  line-height: var(--lh-tight);
+  color: #fff;
+  margin-bottom: var(--space-2);
+}
+
+.nb-cta-text {
+  font-size: var(--fs-body);
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: var(--space-3);
+}
+
+.nb-cta-btn {}
+
+/* ---- Decorative circle graphic ---- */
+.nb-cta-graphic {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nb-cta-circle {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.55);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-3);
+}
+
+.nb-cta-circle i {
+  font-size: 2.75rem;
+  color: #fff;
+  margin-bottom: var(--space-2);
+}
+
+.nb-cta-circle-label {
+  font-size: var(--fs-small);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fff;
+  max-width: 190px;
+  line-height: 1.3;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .nb-cta-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-4);
+  }
+  .nb-cta-content {
+    max-width: 100%;
+  }
+  .nb-cta-circle {
+    width: 220px;
+    height: 220px;
+  }
+}
+
+@media (max-width: 600px) {
+  .nb-cta {
+    min-height: 420px;
+  }
+  .nb-cta-inner {
+    padding-block: var(--space-4);
+  }
+  .nb-cta-circle {
+    width: 180px;
+    height: 180px;
+  }
+  .nb-cta-circle i {
+    font-size: 2rem;
+  }
+  .nb-cta-circle-label {
+    font-size: 0.7rem;
+    max-width: 150px;
+  }
+}
