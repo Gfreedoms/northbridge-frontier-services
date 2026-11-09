@@ -1,0 +1,160 @@
+/* ===================================================================
+   NORTHBRIDGE — CONTACT PAGE
+   Builds on tokens.css + interior-hero.css. Reuses .card, .icon-badge,
+   .btn, .section, .section-heading, .eyebrow. New classes prefixed
+   nb-contactpage-.
+   =================================================================== */
+
+/* ---- Direct contact channels ---- */
+.nb-contactpage-channels {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
+}
+
+.nb-contactpage-channel {
+  flex: 1 1 220px;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--space-3);
+}
+
+.nb-contactpage-channel .icon-badge {
+  margin-bottom: var(--space-2);
+}
+
+.nb-contactpage-channel-label {
+  font-size: var(--fs-small);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-muted);
+  margin-bottom: 4px;
+}
+
+.nb-contactpage-channel-value {
+  font-size: var(--fs-body);
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+a.nb-contactpage-channel-value:hover {
+  color: var(--color-primary);
+}
+
+/* ---- Form ---- */
+.nb-contactpage-form-section {
+  background: var(--color-bg);
+}
+
+.nb-contactpage-form {
+  max-width: 640px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.nb-contactpage-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.nb-contactpage-field label {
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.nb-contactpage-required {
+  color: var(--color-primary);
+}
+
+.nb-contactpage-field input,
+.nb-contactpage-field select,
+.nb-contactpage-field textarea {
+  min-height: 44px;
+  padding: 10px 14px;
+  font-family: inherit;
+  font-size: var(--fs-body);
+  color: var(--color-ink);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.nb-contactpage-field textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.nb-contactpage-field input:focus,
+.nb-contactpage-field select:focus,
+.nb-contactpage-field textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-tint);
+}
+
+.nb-contactpage-field-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.nb-contactpage-field-row .nb-contactpage-field {
+  flex: 1 1 220px;
+}
+
+.nb-contactpage-char-count {
+  align-self: flex-end;
+  font-size: 0.78rem;
+  color: var(--color-muted);
+}
+
+.nb-contactpage-submit-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-1);
+}
+
+.nb-contactpage-submit-helper {
+  font-size: var(--fs-small);
+  color: var(--color-muted);
+}
+
+.nb-contactpage-submit-fallback {
+  font-size: var(--fs-small);
+  color: var(--color-muted);
+}
+
+.nb-contactpage-submit-fallback a {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+/* ---- Closing note ---- */
+.nb-contactpage-closing {
+  text-align: center;
+}
+
+.nb-contactpage-closing p {
+  max-width: min(100%, 60ch);
+  margin-inline: auto;
+  color: var(--color-muted);
+  font-size: var(--fs-body);
+}
+
+@media (max-width: 600px) {
+  .nb-contactpage-field-row {
+    flex-direction: column;
+  }
+}

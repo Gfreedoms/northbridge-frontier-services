@@ -1,7 +1,8 @@
+import '../styles/interior-hero.css';
 import '../styles/about-page.css';
 
 import Header from '@/components/Header';
-import AboutHero from '@/components/about/AboutHero';
+import InteriorHero from '@/components/InteriorHero';
 import AboutIntro from '@/components/about/AboutIntro';
 import MissionVision from '@/components/about/MissionVision';
 import Values from '@/components/about/Values';
@@ -19,7 +20,12 @@ export default function AboutPage() {
   return (
     <>
       <Header />
-      <AboutHero />
+      <InteriorHero
+        image="/images/hero-kampala-mosque-wide.jpg"
+        breadcrumbCurrent="About Us"
+        heading="About Northbridge Frontier Services"
+        subheading="Security solutions for homes, businesses and valuable assets in Uganda."
+      />
       <AboutIntro />
       <MissionVision />
       <Values />

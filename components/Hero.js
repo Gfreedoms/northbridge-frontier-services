@@ -21,7 +21,7 @@ const SLIDES = [
     heading: 'CCTV Installed, Monitored, Supported',
     subheading: 'Site survey, equipment supply, cabling and handover guidance — all in one scope.',
     ctaText: 'Get a Quotation',
-    ctaHref: '#contact',
+    ctaHref: '/contact',
   },
   {
     image: '/images/security-dog-handler.jpg',
@@ -37,7 +37,7 @@ const SLIDES = [
     heading: 'Corporate & Commercial Security',
     subheading: 'Entrance control, visitor registration, patrols and incident reporting for your premises.',
     ctaText: 'Request a Site Assessment',
-    ctaHref: '#contact',
+    ctaHref: '/contact',
   },
 ];
 

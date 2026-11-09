@@ -20,7 +20,7 @@ export default function CtaBanner() {
             agreed plan sets out duty locations, service hours, reporting lines and escalation contacts
             — combining guarding with CCTV and security dogs where appropriate.
           </p>
-          <a href="#contact" className="btn btn--primary nb-cta-btn">
+          <a href="/contact" className="btn btn--primary nb-cta-btn">
             Request a Site Assessment
             <i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
           </a>

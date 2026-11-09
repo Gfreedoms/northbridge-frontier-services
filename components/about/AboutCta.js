@@ -8,7 +8,7 @@ export default function AboutCta() {
           discuss them. Additional assignments are considered according to suitability, available
           resources and applicable authorisations.
         </p>
-        <a href="#contact" className="btn btn--primary">
+        <a href="/contact" className="btn btn--primary">
           Get in Touch
           <i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
         </a>

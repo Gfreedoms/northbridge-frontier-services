@@ -140,13 +140,13 @@ export default function Services() {
                         <p className="nb-services-card-desc">{pkg.desc}</p>
                         <ul className="nb-services-card-links">
                           <li>
-                            <a href="#contact" className="nb-services-card-link">
+                            <a href="/contact" className="nb-services-card-link">
                               <i className="fa-solid fa-circle-right" aria-hidden="true"></i>
                               <span>{pkg.linkA}</span>
                             </a>
                           </li>
                           <li>
-                            <a href="#contact" className="nb-services-card-link">
+                            <a href="/contact" className="nb-services-card-link">
                               <i className="fa-solid fa-circle-right" aria-hidden="true"></i>
                               <span>{pkg.linkB}</span>
                             </a>

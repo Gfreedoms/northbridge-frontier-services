@@ -1,0 +1,75 @@
+/* ===================================================================
+   NORTHBRIDGE — SHARED INTERIOR PAGE HERO
+   Used by every interior page (About, Contact, and future pages) via the
+   <InteriorHero /> component. Builds on tokens.css. Originally built for
+   the About page and extracted here once a second page needed the exact
+   same pattern — see docs/contact-page-brief.md.
+   =================================================================== */
+
+.nb-interior-hero {
+  position: relative;
+  min-height: 360px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  color: #fff;
+}
+
+.nb-interior-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(21, 23, 26, 0.72);
+  z-index: 1;
+}
+
+.nb-interior-hero-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.nb-interior-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--fs-small);
+  font-weight: 500;
+  margin-bottom: var(--space-2);
+}
+
+.nb-interior-breadcrumb a {
+  color: rgba(255, 255, 255, 0.75);
+  transition: color 0.18s ease;
+}
+
+.nb-interior-breadcrumb a:hover {
+  color: #fff;
+}
+
+.nb-interior-breadcrumb-sep {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.nb-interior-breadcrumb-current {
+  color: #fff;
+}
+
+.nb-interior-hero-heading {
+  font-size: var(--fs-h1);
+  font-weight: 800;
+  line-height: var(--lh-tight);
+  margin-bottom: var(--space-1);
+}
+
+.nb-interior-hero-subheading {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.88);
+  max-width: 560px;
+}
+
+@media (max-width: 600px) {
+  .nb-interior-hero {
+    min-height: 320px;
+  }
+}

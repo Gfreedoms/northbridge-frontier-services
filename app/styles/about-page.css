@@ -3,71 +3,9 @@
    Builds on tokens.css + reuses global classes (.icon-badge, .btn, .card,
    .section, .section-heading, .eyebrow, .nb-services-grid* for the
    "Who We Serve" chips, .nb-cta-eyebrow if an inverted label is ever
-   needed on a dark surface). New classes prefixed nb-aboutpage-.
+   needed on a dark surface) + the shared interior-hero.css (via
+   <InteriorHero />). New classes here prefixed nb-aboutpage-.
    =================================================================== */
-
-/* ---- Hero banner ---- */
-.nb-aboutpage-hero {
-  position: relative;
-  min-height: 360px;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  color: #fff;
-}
-
-.nb-aboutpage-hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(21, 23, 26, 0.72);
-  z-index: 1;
-}
-
-.nb-aboutpage-hero-inner {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-}
-
-.nb-aboutpage-breadcrumb {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: var(--fs-small);
-  font-weight: 500;
-  margin-bottom: var(--space-2);
-}
-
-.nb-aboutpage-breadcrumb a {
-  color: rgba(255, 255, 255, 0.75);
-  transition: color 0.18s ease;
-}
-
-.nb-aboutpage-breadcrumb a:hover {
-  color: #fff;
-}
-
-.nb-aboutpage-breadcrumb-sep {
-  color: var(--color-primary);
-  font-weight: 700;
-}
-
-.nb-aboutpage-breadcrumb-current {
-  color: #fff;
-}
-
-.nb-aboutpage-hero-heading {
-  font-size: var(--fs-h1);
-  font-weight: 800;
-  line-height: var(--lh-tight);
-  margin-bottom: var(--space-1);
-}
-
-.nb-aboutpage-hero-subheading {
-  font-size: 1.05rem;
-  color: rgba(255, 255, 255, 0.88);
-  max-width: 560px;
-}
 
 /* ---- Intro / reading column ---- */
 .nb-aboutpage-intro-copy {
@@ -247,11 +185,4 @@
   font-size: var(--fs-body);
   color: var(--color-muted);
   margin-bottom: var(--space-3);
-}
-
-/* ---- Shared ---- */
-@media (max-width: 600px) {
-  .nb-aboutpage-hero {
-    min-height: 320px;
-  }
 }

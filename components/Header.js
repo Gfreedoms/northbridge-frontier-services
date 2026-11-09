@@ -138,12 +138,12 @@ export default function Header() {
               </li>
               <li><a href="/about">About Us</a></li>
               <li><a href="#">Careers</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li><a href="/contact">Contact</a></li>
             </ul>
           </nav>
 
           <div className="nb-header-actions">
-            <a href="#contact" className="btn btn--dark btn--sm nb-header-callback">Request a Callback</a>
+            <a href="/contact" className="btn btn--dark btn--sm nb-header-callback">Request a Callback</a>
             <button type="button" className="nb-header-icon-btn nb-header-search" aria-label="Search">
               <i className="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
             </button>
@@ -177,7 +177,7 @@ export default function Header() {
 
           <div className="nb-header-category-actions">
             <a href="#" className="btn btn--outline btn--sm nb-header-portal-btn">Client Portal</a>
-            <a href="#contact" className="btn btn--sm nb-header-quote-btn">Get a Quote</a>
+            <a href="/contact" className="btn btn--sm nb-header-quote-btn">Get a Quote</a>
           </div>
         </div>
       </div>
@@ -216,9 +216,9 @@ export default function Header() {
           </li>
           <li><a href="/about" onClick={closeMobileNav}><i className="fa-solid fa-circle-info" aria-hidden="true"></i>About Us</a></li>
           <li><a href="#" onClick={closeMobileNav}><i className="fa-solid fa-briefcase" aria-hidden="true"></i>Careers</a></li>
-          <li><a href="#contact" onClick={closeMobileNav}><i className="fa-solid fa-envelope" aria-hidden="true"></i>Contact</a></li>
+          <li><a href="/contact" onClick={closeMobileNav}><i className="fa-solid fa-envelope" aria-hidden="true"></i>Contact</a></li>
         </ul>
-        <a href="#contact" className="btn btn--primary nb-header-mobile-cta" onClick={closeMobileNav}>Request a Callback</a>
+        <a href="/contact" className="btn btn--primary nb-header-mobile-cta" onClick={closeMobileNav}>Request a Callback</a>
       </nav>
     </header>
   );
