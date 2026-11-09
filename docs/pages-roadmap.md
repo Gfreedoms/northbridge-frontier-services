@@ -63,7 +63,7 @@ No skipping steps to go faster.
 | Page | Assets | Brief | Design-skill pass | Designer review | Built | Shipped |
 |---|---|---|---|---|---|---|
 | About Us | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Contact | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ |
+| Contact | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Services hub | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ |
 | Services × 6 detail pages | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ |
 | Careers | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ |
