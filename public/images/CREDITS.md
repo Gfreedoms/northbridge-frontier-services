@@ -17,5 +17,6 @@ All sourced from pexels.com, used under the Pexels License (free for commercial 
 | business-handshake.jpg | 9488840 | Landing — about/trust stats section |
 | control-room-monitoring.jpg | 30692441 | About page — vigilance/approach section |
 | security-gatehouse-entrance.jpg | 31594272 | Contact page hero banner |
+| security-team-colleagues.jpg | 17649450 | Careers page hero banner |
 
 Source pattern: `https://images.pexels.com/photos/{ID}/pexels-photo-{ID}.jpeg`
