@@ -66,4 +66,4 @@ No skipping steps to go faster.
 | Contact | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Services hub | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ |
 | Services × 6 detail pages | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ |
-| Careers | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ |
+| Careers | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
