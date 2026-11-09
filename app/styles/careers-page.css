@@ -1,0 +1,63 @@
+/* ===================================================================
+   NORTHBRIDGE — CAREERS PAGE
+   Builds on tokens.css + interior-hero.css. Reuses .btn, .section,
+   .section-heading. New classes prefixed nb-careerspage-.
+   =================================================================== */
+
+/* ---- Empty state ---- */
+.nb-careerspage-empty {
+  text-align: center;
+}
+
+.nb-careerspage-empty-icon {
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  background: var(--color-primary-tint);
+  color: var(--color-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  margin-bottom: var(--space-3);
+}
+
+.nb-careerspage-empty-body {
+  max-width: min(100%, 60ch);
+  margin-inline: auto;
+  color: var(--color-muted);
+}
+
+/* ---- Speculative CTA ---- */
+.nb-careerspage-cta {
+  background: var(--color-bg);
+  text-align: center;
+}
+
+.nb-careerspage-cta-body {
+  max-width: min(100%, 60ch);
+  margin-inline: auto;
+  color: var(--color-muted);
+  margin-bottom: var(--space-3);
+}
+
+/* ---- Values pointer ---- */
+.nb-careerspage-values {
+  text-align: center;
+}
+
+.nb-careerspage-values-body {
+  max-width: min(100%, 60ch);
+  margin-inline: auto;
+  color: var(--color-ink);
+  margin-bottom: var(--space-2);
+}
+
+.nb-careerspage-values-link {
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.nb-careerspage-values-link:hover {
+  text-decoration: underline;
+}

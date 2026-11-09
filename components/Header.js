@@ -138,7 +138,7 @@ export default function Header() {
                 </div>
               </li>
               <li><Link href="/about">About Us</Link></li>
-              <li><a href="#">Careers</a></li>
+              <li><Link href="/careers">Careers</Link></li>
               <li><Link href="/contact">Contact</Link></li>
             </ul>
           </nav>
@@ -216,7 +216,7 @@ export default function Header() {
             </div>
           </li>
           <li><Link href="/about" onClick={closeMobileNav}><i className="fa-solid fa-circle-info" aria-hidden="true"></i>About Us</Link></li>
-          <li><a href="#" onClick={closeMobileNav}><i className="fa-solid fa-briefcase" aria-hidden="true"></i>Careers</a></li>
+          <li><Link href="/careers" onClick={closeMobileNav}><i className="fa-solid fa-briefcase" aria-hidden="true"></i>Careers</Link></li>
           <li><Link href="/contact" onClick={closeMobileNav}><i className="fa-solid fa-envelope" aria-hidden="true"></i>Contact</Link></li>
         </ul>
         <Link href="/contact" className="btn btn--primary nb-header-mobile-cta" onClick={closeMobileNav}>Request a Callback</Link>

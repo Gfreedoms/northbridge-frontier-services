@@ -35,8 +35,7 @@ export default function Footer() {
               <li><Link href="/about#who-we-are" className="nb-footer-link">Who We Are</Link></li>
               <li><Link href="/about#mission" className="nb-footer-link">Mission &amp; Vision</Link></li>
               <li><Link href="/about#values" className="nb-footer-link">Our Values</Link></li>
-              {/* stub: careers page not yet built, phase 2 */}
-              <li><a href="#" className="nb-footer-link">Careers</a></li>
+              <li><Link href="/careers" className="nb-footer-link">Careers</Link></li>
             </ul>
           </div>
 
