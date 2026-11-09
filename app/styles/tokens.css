@@ -17,6 +17,8 @@
   --color-dark: #15171A;
   --color-dark-surface: #1F2226;
   --color-border: #E3E3E3;
+  --color-success: #1E8A4C;
+  --color-success-tint: #E3F3E9;
 
   /* Typography */
   --font-base: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;

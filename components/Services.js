@@ -4,64 +4,56 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { withBasePath } from '@/lib/basePath';
-
-const ICON_CARDS = [
-  { icon: 'fa-house-chimney', label: 'Home & Residential Security' },
-  { icon: 'fa-building-shield', label: 'Corporate & Commercial Security' },
-  { icon: 'fa-video', label: 'CCTV Installation' },
-  { icon: 'fa-lock', label: 'Storage of Valuables' },
-  { icon: 'fa-car-side', label: 'Security Escorts' },
-  { icon: 'fa-dog', label: 'Security Dogs' },
-];
+import { SERVICES } from '@/lib/servicesData';
 
 const PACKAGES = [
   {
+    slug: 'home-residential-security',
     image: '/images/residential-gate.jpg',
     alt: 'Security guard controlling a residential gate',
     title: 'Residential Guarding Plan',
     desc: 'Guarding, gate control, visitor verification and patrols designed around your home or compound.',
     linkA: 'See Residential Security',
-    linkB: 'Get a Quote',
   },
   {
+    slug: 'corporate-commercial-security',
     image: '/images/commercial-guard-patrol.jpg',
     alt: 'Security guard patrolling a commercial premises',
     title: 'Corporate Security Package',
     desc: 'Entrance control, visitor registration, vehicle checks and incident reporting for your business premises.',
     linkA: 'See Corporate Security',
-    linkB: 'Get a Quote',
   },
   {
+    slug: 'cctv-installation',
     image: '/images/cctv-camera-closeup.jpg',
     alt: 'Close-up of a CCTV security camera',
     title: 'CCTV Installation Package',
     desc: 'Site survey, camera coverage planning, cabling, recorder setup and system testing, handled end to end.',
     linkA: 'See CCTV Installation',
-    linkB: 'Get a Quote',
   },
   {
+    slug: 'storage-of-valuables',
     image: '/images/vault-safe-storage.jpg',
     alt: 'Secure vault for storage of valuables',
     title: 'Valuables Storage Plan',
     desc: 'Agreed custody terms, consignment records and confidential handling for your valuable goods.',
     linkA: 'See Storage Service',
-    linkB: 'Get a Quote',
   },
   {
+    slug: 'security-escorts',
     image: '/images/escort-chauffeur-suv.jpg',
     alt: 'Security escort vehicle with chauffeur',
     title: 'Security Escort Service',
     desc: 'Planned journeys for goods and valuable assets, with agreed collection, timing and handover.',
     linkA: 'See Escort Services',
-    linkB: 'Get a Quote',
   },
   {
+    slug: 'security-dogs',
     image: '/images/security-dog-handler.jpg',
     alt: 'Security dog handler on patrol',
     title: 'Security Dog Deployment',
     desc: 'Dog and handler teams assessed for site suitability, complementing guarding and CCTV.',
     linkA: 'See Dog Services',
-    linkB: 'Get a Quote',
   },
 ];
 
@@ -103,14 +95,14 @@ export default function Services() {
         <h2 className="section-heading">How Can We Help Protect What Matters?</h2>
 
         <ul className="nb-services-grid">
-          {ICON_CARDS.map((item) => (
-            <li className="nb-services-grid-item" key={item.label}>
-              <a href="#services" className="nb-services-icon-card">
+          {SERVICES.map((item) => (
+            <li className="nb-services-grid-item" key={item.slug}>
+              <Link href={`/services/${item.slug}`} className="nb-services-icon-card">
                 <span className="icon-badge nb-services-icon-badge">
                   <i className={`fa-solid ${item.icon}`} aria-hidden="true"></i>
                 </span>
                 <span className="nb-services-icon-label">{item.label}</span>
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -141,15 +133,15 @@ export default function Services() {
                         <p className="nb-services-card-desc">{pkg.desc}</p>
                         <ul className="nb-services-card-links">
                           <li>
-                            <Link href="/contact" className="nb-services-card-link">
+                            <Link href={`/services/${pkg.slug}`} className="nb-services-card-link">
                               <i className="fa-solid fa-circle-right" aria-hidden="true"></i>
                               <span>{pkg.linkA}</span>
                             </Link>
                           </li>
                           <li>
-                            <Link href="/contact" className="nb-services-card-link">
+                            <Link href={`/contact?service=${pkg.slug}`} className="nb-services-card-link">
                               <i className="fa-solid fa-circle-right" aria-hidden="true"></i>
-                              <span>{pkg.linkB}</span>
+                              <span>Get a Quote</span>
                             </Link>
                           </li>
                         </ul>

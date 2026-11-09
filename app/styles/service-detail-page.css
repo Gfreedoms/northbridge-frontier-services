@@ -1,0 +1,157 @@
+/* ===================================================================
+   NORTHBRIDGE — SERVICE DETAIL PAGE (/services/[slug])
+   Builds on tokens.css + reuses .card, .icon-badge, .btn, .section,
+   .section-heading, .eyebrow + the shared interior-hero.css. New classes
+   here prefixed nb-servicedetail-.
+   =================================================================== */
+
+.nb-servicedetail-overview {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: var(--space-5);
+  align-items: start;
+}
+
+.nb-servicedetail-overview-copy .eyebrow {
+  display: block;
+}
+
+.nb-servicedetail-bullets {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-3) 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.nb-servicedetail-bullets li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 1.02rem;
+  line-height: 1.6;
+  color: var(--color-ink);
+}
+
+.nb-servicedetail-bullets li i {
+  color: var(--color-primary);
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+
+/* ---- Side callouts (suited-for / note / confidential) ---- */
+.nb-servicedetail-aside {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.nb-servicedetail-suited {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-3);
+}
+
+.nb-servicedetail-suited-title {
+  font-size: var(--fs-small);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-muted);
+  margin-bottom: var(--space-2);
+}
+
+.nb-servicedetail-suited-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.nb-servicedetail-suited-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--fs-small);
+  font-weight: 500;
+  color: var(--color-ink);
+}
+
+.nb-servicedetail-suited-list li i {
+  color: var(--color-primary);
+  font-size: 0.8em;
+}
+
+/* Shared callout card for "note" and "confidentialNote" — crimson left
+   border + tinted background, distinct from the plain white suited-for
+   card so a reader can tell "practical detail" apart from "FYI aside". */
+.nb-servicedetail-callout {
+  background: var(--color-primary-tint);
+  border-left: 4px solid var(--color-primary);
+  border-radius: var(--radius-sm);
+  padding: var(--space-3);
+  display: flex;
+  gap: 12px;
+}
+
+.nb-servicedetail-callout i {
+  color: var(--color-primary);
+  font-size: 1.1rem;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.nb-servicedetail-callout p {
+  font-size: var(--fs-small);
+  line-height: 1.6;
+  color: var(--color-ink);
+  margin: 0;
+}
+
+/* ---- Request-this-service CTA ---- */
+.nb-servicedetail-request {
+  background: var(--color-dark);
+  text-align: center;
+}
+
+.nb-servicedetail-request-heading {
+  color: #fff;
+}
+
+.nb-servicedetail-request-copy {
+  max-width: min(100%, 60ch);
+  margin: 0 auto var(--space-3);
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 1.02rem;
+  line-height: 1.6;
+}
+
+/* ---- Explore other services ---- */
+.nb-servicedetail-cross-caption {
+  max-width: min(100%, 65ch);
+  margin: 0 auto var(--space-4);
+  text-align: center;
+  color: var(--color-muted);
+}
+
+.nb-servicedetail-cross-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+}
+
+.nb-servicedetail-cross-grid .nb-services-grid-item {
+  flex: 1 1 160px;
+  max-width: 180px;
+}
+
+@media (max-width: 900px) {
+  .nb-servicedetail-overview {
+    grid-template-columns: 1fr;
+  }
+}

@@ -6,7 +6,7 @@ All sourced from pexels.com, used under the Pexels License (free for commercial 
 |---|---|---|
 | hero-kampala-aerial-skyline.jpg | 39554460 | Landing hero slide 1 — Kampala skyline |
 | hero-kampala-mosque-wide.jpg | 38101663 | About page hero banner |
-| guard-entrance.jpg | 12304330 | Unused (reserved for a future Services detail page) |
+| guard-entrance.jpg | 12304330 | Services hub page hero banner |
 | commercial-guard-patrol.jpg | 27299956 | Landing — corporate & commercial security card |
 | cctv-camera-closeup.jpg | 5966513 | Landing — CCTV installation card |
 | vault-safe-storage.jpg | 32334240 | Landing — storage of valuables card |

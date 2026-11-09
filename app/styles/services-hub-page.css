@@ -1,0 +1,87 @@
+/* ===================================================================
+   NORTHBRIDGE — SERVICES HUB PAGE (/services)
+   Builds on tokens.css + reuses .card, .icon-badge, .btn, .section,
+   .section-heading, .eyebrow + the shared interior-hero.css. Also reuses
+   the existing Process and CtaBanner components as-is. New classes here
+   prefixed nb-serviceshub-.
+   =================================================================== */
+
+.nb-serviceshub-intro {
+  max-width: min(100%, 70ch);
+  margin-inline: auto;
+  text-align: center;
+}
+
+.nb-serviceshub-intro-eyebrow {
+  display: block;
+}
+
+.nb-serviceshub-intro p {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--color-muted);
+}
+
+.nb-serviceshub-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
+
+.nb-serviceshub-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: var(--space-4);
+  height: 100%;
+}
+
+.nb-serviceshub-card-icon {
+  margin-bottom: var(--space-2);
+}
+
+.nb-serviceshub-card-title {
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  color: var(--color-ink);
+  margin-bottom: var(--space-1);
+}
+
+.nb-serviceshub-card-desc {
+  font-size: var(--fs-small);
+  color: var(--color-muted);
+  line-height: 1.6;
+  margin-bottom: var(--space-3);
+  flex-grow: 1;
+}
+
+.nb-serviceshub-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.nb-serviceshub-card-link i {
+  font-size: 0.8em;
+  transition: transform 0.18s ease;
+}
+
+.nb-serviceshub-card:hover .nb-serviceshub-card-link i {
+  transform: translateX(4px);
+}
+
+@media (max-width: 992px) {
+  .nb-serviceshub-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .nb-serviceshub-grid {
+    grid-template-columns: 1fr;
+  }
+}

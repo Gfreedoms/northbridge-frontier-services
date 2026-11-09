@@ -8,49 +8,55 @@ const MEGA_SERVICES = [
     icon: 'fa-house-chimney',
     title: 'Home & Residential Security',
     desc: 'Guarding, gate control and visitor verification for your home.',
+    href: '/services/home-residential-security',
   },
   {
     icon: 'fa-building-shield',
     title: 'Corporate & Commercial Security',
     desc: 'Entrance control, patrols and incident reporting for your business.',
+    href: '/services/corporate-commercial-security',
   },
   {
     icon: 'fa-video',
     title: 'CCTV Installation',
     desc: 'Site survey, equipment supply and system testing end to end.',
+    href: '/services/cctv-installation',
   },
   {
     icon: 'fa-lock',
     title: 'Storage of Valuables',
     desc: 'Agreed custody terms and confidential handling for valuable goods.',
+    href: '/services/storage-of-valuables',
   },
   {
     icon: 'fa-car-side',
     title: 'Security Escorts',
     desc: 'Planned journeys for goods and valuable assets.',
+    href: '/services/security-escorts',
   },
   {
     icon: 'fa-dog',
     title: 'Security Dogs',
     desc: 'Dog and handler teams for deterrence and patrol support.',
+    href: '/services/security-dogs',
   },
 ];
 
 const CATEGORY_LINKS = [
-  { icon: 'fa-house', label: 'Home Security' },
-  { icon: 'fa-building-shield', label: 'Corporate Security' },
-  { icon: 'fa-video', label: 'CCTV Installation' },
-  { icon: 'fa-route', label: 'Storage & Escorts' },
-  { icon: 'fa-dog', label: 'Security Dogs' },
+  { icon: 'fa-house', label: 'Home Security', href: '/services/home-residential-security' },
+  { icon: 'fa-building-shield', label: 'Corporate Security', href: '/services/corporate-commercial-security' },
+  { icon: 'fa-video', label: 'CCTV Installation', href: '/services/cctv-installation' },
+  { icon: 'fa-route', label: 'Storage & Escorts', href: '/services' },
+  { icon: 'fa-dog', label: 'Security Dogs', href: '/services/security-dogs' },
 ];
 
 const MOBILE_SERVICES = [
-  { icon: 'fa-house-chimney', label: 'Home & Residential Security' },
-  { icon: 'fa-building-shield', label: 'Corporate & Commercial Security' },
-  { icon: 'fa-video', label: 'CCTV Installation' },
-  { icon: 'fa-lock', label: 'Storage of Valuables' },
-  { icon: 'fa-car-side', label: 'Security Escorts' },
-  { icon: 'fa-dog', label: 'Security Dogs' },
+  { icon: 'fa-house-chimney', label: 'Home & Residential Security', href: '/services/home-residential-security' },
+  { icon: 'fa-building-shield', label: 'Corporate & Commercial Security', href: '/services/corporate-commercial-security' },
+  { icon: 'fa-video', label: 'CCTV Installation', href: '/services/cctv-installation' },
+  { icon: 'fa-lock', label: 'Storage of Valuables', href: '/services/storage-of-valuables' },
+  { icon: 'fa-car-side', label: 'Security Escorts', href: '/services/security-escorts' },
+  { icon: 'fa-dog', label: 'Security Dogs', href: '/services/security-dogs' },
 ];
 
 export default function Header() {
@@ -124,7 +130,7 @@ export default function Header() {
                 >
                   <div className="nb-header-mega-grid">
                     {MEGA_SERVICES.map((item) => (
-                      <Link href="/#services" className="nb-header-mega-item" key={item.title}>
+                      <Link href={item.href} className="nb-header-mega-item" key={item.title}>
                         <span className="icon-badge nb-header-mega-icon">
                           <i className={`fa-solid ${item.icon}`} aria-hidden="true"></i>
                         </span>
@@ -135,6 +141,9 @@ export default function Header() {
                       </Link>
                     ))}
                   </div>
+                  <Link href="/services" className="nb-header-mega-viewall">
+                    View All Services <i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                  </Link>
                 </div>
               </li>
               <li><Link href="/about">About Us</Link></li>
@@ -168,7 +177,7 @@ export default function Header() {
           <ul className="nb-header-category-links">
             {CATEGORY_LINKS.map((item) => (
               <li key={item.label}>
-                <Link href="/#services">
+                <Link href={item.href}>
                   <i className={`fa-solid ${item.icon}`} aria-hidden="true"></i>
                   <span>{item.label}</span>
                 </Link>
@@ -177,7 +186,6 @@ export default function Header() {
           </ul>
 
           <div className="nb-header-category-actions">
-            <a href="#" className="btn btn--outline btn--sm nb-header-portal-btn">Client Portal</a>
             <Link href="/contact" className="btn btn--sm nb-header-quote-btn">Get a Quote</Link>
           </div>
         </div>
@@ -206,12 +214,17 @@ export default function Header() {
               <ul className="nb-header-mobile-submenu-list">
                 {MOBILE_SERVICES.map((item) => (
                   <li key={item.label}>
-                    <Link href="/#services" onClick={closeMobileNav}>
+                    <Link href={item.href} onClick={closeMobileNav}>
                       <i className={`fa-solid ${item.icon}`} aria-hidden="true"></i>
                       {item.label}
                     </Link>
                   </li>
                 ))}
+                <li>
+                  <Link href="/services" onClick={closeMobileNav} className="nb-header-mobile-viewall">
+                    View All Services
+                  </Link>
+                </li>
               </ul>
             </div>
           </li>

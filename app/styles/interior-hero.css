@@ -1,25 +1,42 @@
 /* ===================================================================
    NORTHBRIDGE — SHARED INTERIOR PAGE HERO
-   Used by every interior page (About, Contact, and future pages) via the
-   <InteriorHero /> component. Builds on tokens.css. Originally built for
-   the About page and extracted here once a second page needed the exact
-   same pattern — see docs/contact-page-brief.md.
+   Used by every interior page (About, Contact, Careers, Services, and
+   future pages) via the <InteriorHero /> component. Builds on tokens.css.
+
+   Visual language matches the home page hero (hero.css): padded floating
+   card, asymmetric scooped bottom-left corner, left-to-right dark gradient
+   over the photo, text-shadow heading. Deliberately does NOT match its
+   height or carousel — this is a single static banner, not a slider.
    =================================================================== */
 
 .nb-interior-hero {
+  position: relative;
+  background: var(--color-bg);
+  padding: var(--space-2);
+  isolation: isolate;
+}
+
+.nb-interior-hero-track {
   position: relative;
   min-height: 360px;
   display: flex;
   align-items: center;
   overflow: hidden;
   color: #fff;
+  border-radius: 10px 10px 10px 113px;
 }
 
 .nb-interior-hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(21, 23, 26, 0.72);
   z-index: 1;
+  background: linear-gradient(
+    to right,
+    rgba(10, 11, 13, 0.82) 0%,
+    rgba(10, 11, 13, 0.62) 35%,
+    rgba(10, 11, 13, 0.18) 58%,
+    rgba(10, 11, 13, 0) 68%
+  );
 }
 
 .nb-interior-hero-inner {
@@ -60,6 +77,7 @@
   font-weight: 800;
   line-height: var(--lh-tight);
   margin-bottom: var(--space-1);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
 }
 
 .nb-interior-hero-subheading {
@@ -68,8 +86,30 @@
   max-width: 560px;
 }
 
+@media (max-width: 900px) {
+  .nb-interior-hero-track {
+    min-height: 320px;
+    border-radius: 8px 8px 8px 90px;
+  }
+
+  .nb-interior-hero-overlay {
+    background: linear-gradient(
+      to right,
+      rgba(10, 11, 13, 0.85) 0%,
+      rgba(10, 11, 13, 0.68) 55%,
+      rgba(10, 11, 13, 0.35) 85%,
+      rgba(10, 11, 13, 0.2) 100%
+    );
+  }
+}
+
 @media (max-width: 600px) {
   .nb-interior-hero {
-    min-height: 320px;
+    padding: var(--space-1);
+  }
+
+  .nb-interior-hero-track {
+    min-height: 300px;
+    border-radius: 6px 6px 6px 64px;
   }
 }
