@@ -1,0 +1,257 @@
+/* ===================================================================
+   NORTHBRIDGE — ABOUT PAGE
+   Builds on tokens.css + reuses global classes (.icon-badge, .btn, .card,
+   .section, .section-heading, .eyebrow, .nb-services-grid* for the
+   "Who We Serve" chips, .nb-cta-eyebrow if an inverted label is ever
+   needed on a dark surface). New classes prefixed nb-aboutpage-.
+   =================================================================== */
+
+/* ---- Hero banner ---- */
+.nb-aboutpage-hero {
+  position: relative;
+  min-height: 360px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  color: #fff;
+}
+
+.nb-aboutpage-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(21, 23, 26, 0.72);
+  z-index: 1;
+}
+
+.nb-aboutpage-hero-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.nb-aboutpage-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--fs-small);
+  font-weight: 500;
+  margin-bottom: var(--space-2);
+}
+
+.nb-aboutpage-breadcrumb a {
+  color: rgba(255, 255, 255, 0.75);
+  transition: color 0.18s ease;
+}
+
+.nb-aboutpage-breadcrumb a:hover {
+  color: #fff;
+}
+
+.nb-aboutpage-breadcrumb-sep {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.nb-aboutpage-breadcrumb-current {
+  color: #fff;
+}
+
+.nb-aboutpage-hero-heading {
+  font-size: var(--fs-h1);
+  font-weight: 800;
+  line-height: var(--lh-tight);
+  margin-bottom: var(--space-1);
+}
+
+.nb-aboutpage-hero-subheading {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.88);
+  max-width: 560px;
+}
+
+/* ---- Intro / reading column ---- */
+.nb-aboutpage-intro-copy {
+  max-width: min(100%, 65ch);
+}
+
+.nb-aboutpage-intro-copy p {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--color-ink);
+  margin-bottom: var(--space-2);
+}
+
+.nb-aboutpage-intro-copy p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---- Mission & Vision ---- */
+.nb-aboutpage-mv {
+  background: var(--color-dark);
+}
+
+.nb-aboutpage-mv-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+}
+
+.nb-aboutpage-mv-card {
+  background: var(--color-dark-surface);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+}
+
+.nb-aboutpage-mv-card .icon-badge {
+  margin-bottom: var(--space-2);
+}
+
+.nb-aboutpage-mv-title {
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: var(--space-1);
+}
+
+.nb-aboutpage-mv-text {
+  font-size: var(--fs-body);
+  color: rgba(255, 255, 255, 0.85);
+  line-height: var(--lh-normal);
+}
+
+/* ---- Values ---- */
+.nb-aboutpage-values-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+}
+
+.nb-aboutpage-value-card {
+  flex: 1 1 200px;
+  max-width: 220px;
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-3);
+  text-align: center;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.nb-aboutpage-value-card:hover {
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-4px);
+}
+
+.nb-aboutpage-value-card .icon-badge {
+  margin-inline: auto;
+  margin-bottom: var(--space-2);
+}
+
+.nb-aboutpage-value-title {
+  font-size: var(--fs-body);
+  font-weight: 700;
+  color: var(--color-ink);
+  margin-bottom: 6px;
+}
+
+.nb-aboutpage-value-desc {
+  font-size: var(--fs-small);
+  color: var(--color-muted);
+  line-height: 1.5;
+}
+
+/* Vigilance card: literal visual anchor via the control-room photo,
+   overlay + white text, otherwise identical footprint to its siblings. */
+.nb-aboutpage-value-card--photo {
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+}
+
+.nb-aboutpage-value-card--photo .nb-aboutpage-value-card-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.nb-aboutpage-value-card--photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(21, 23, 26, 0.68);
+  z-index: 1;
+}
+
+.nb-aboutpage-value-card--photo > .icon-badge,
+.nb-aboutpage-value-card--photo > .nb-aboutpage-value-title,
+.nb-aboutpage-value-card--photo > .nb-aboutpage-value-desc {
+  position: relative;
+  z-index: 2;
+}
+
+.nb-aboutpage-value-card--photo .nb-aboutpage-value-title {
+  color: #fff;
+}
+
+.nb-aboutpage-value-card--photo .nb-aboutpage-value-desc {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+@media (max-width: 992px) {
+  .nb-aboutpage-mv-grid {
+    grid-template-columns: 1fr;
+  }
+  .nb-aboutpage-value-card {
+    flex-basis: calc(33.333% - var(--space-3));
+  }
+}
+
+@media (max-width: 700px) {
+  .nb-aboutpage-value-card {
+    flex-basis: 100%;
+    max-width: 320px;
+  }
+}
+
+/* ---- Who We Serve grid override ----
+   .nb-services-grid is a fixed repeat(6, 1fr) grid built for the landing
+   page's exactly-6 service icons. With 7 client chips here, that fixed
+   grid leaves the 7th item orphaned left-aligned on its own row. Override
+   to the same flexbox-center pattern used for the Values section instead
+   of patching the shared 6-column grid (which must stay exactly as-is for
+   the landing page). */
+.nb-aboutpage-clients-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+}
+
+.nb-aboutpage-clients-grid .nb-services-grid-item {
+  flex: 1 1 160px;
+  max-width: 180px;
+}
+
+/* ---- Closing CTA ---- */
+.nb-aboutpage-cta {
+  text-align: center;
+}
+
+.nb-aboutpage-cta-copy {
+  max-width: min(100%, 65ch);
+  margin-inline: auto;
+}
+
+.nb-aboutpage-cta-copy p {
+  font-size: var(--fs-body);
+  color: var(--color-muted);
+  margin-bottom: var(--space-3);
+}
+
+/* ---- Shared ---- */
+@media (max-width: 600px) {
+  .nb-aboutpage-hero {
+    min-height: 320px;
+  }
+}

@@ -30,9 +30,9 @@ export default function Footer() {
           <div className="nb-footer-col">
             <h3 className="nb-footer-col-title">Company</h3>
             <ul className="nb-footer-links">
-              <li><a href="#about" className="nb-footer-link">Who We Are</a></li>
-              <li><a href="#about" className="nb-footer-link">Mission &amp; Vision</a></li>
-              <li><a href="#about" className="nb-footer-link">Our Values</a></li>
+              <li><a href="/about#who-we-are" className="nb-footer-link">Who We Are</a></li>
+              <li><a href="/about#mission" className="nb-footer-link">Mission &amp; Vision</a></li>
+              <li><a href="/about#values" className="nb-footer-link">Our Values</a></li>
               {/* stub: careers page not yet built, phase 2 */}
               <li><a href="#" className="nb-footer-link">Careers</a></li>
             </ul>

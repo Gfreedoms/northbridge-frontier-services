@@ -37,7 +37,7 @@ export default function AboutStats() {
             </div>
           </div>
 
-          <a href="#about" className="btn btn--primary nb-about-btn">
+          <a href="/about" className="btn btn--primary nb-about-btn">
             Explore Who We Are
             <i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
           </a>

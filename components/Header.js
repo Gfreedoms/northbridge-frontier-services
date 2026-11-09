@@ -136,7 +136,7 @@ export default function Header() {
                   </div>
                 </div>
               </li>
-              <li><a href="#about">About Us</a></li>
+              <li><a href="/about">About Us</a></li>
               <li><a href="#">Careers</a></li>
               <li><a href="#contact">Contact</a></li>
             </ul>
@@ -214,7 +214,7 @@ export default function Header() {
               </ul>
             </div>
           </li>
-          <li><a href="#about" onClick={closeMobileNav}><i className="fa-solid fa-circle-info" aria-hidden="true"></i>About Us</a></li>
+          <li><a href="/about" onClick={closeMobileNav}><i className="fa-solid fa-circle-info" aria-hidden="true"></i>About Us</a></li>
           <li><a href="#" onClick={closeMobileNav}><i className="fa-solid fa-briefcase" aria-hidden="true"></i>Careers</a></li>
           <li><a href="#contact" onClick={closeMobileNav}><i className="fa-solid fa-envelope" aria-hidden="true"></i>Contact</a></li>
         </ul>
