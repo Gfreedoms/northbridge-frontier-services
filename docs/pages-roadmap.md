@@ -64,6 +64,14 @@ No skipping steps to go faster.
 |---|---|---|---|---|---|---|
 | About Us | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Contact | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Services hub | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ |
-| Services × 6 detail pages | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ |
+| Services hub | ✅ | *skipped¹ | *skipped¹ | *skipped¹ | ✅ | ✅ |
+| Services × 6 detail pages | ✅ | *skipped¹ | *skipped¹ | *skipped¹ | ✅ | ✅ |
 | Careers | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+
+¹ Built directly from `docs/features.md` and the already-established design
+system/components (reusing `InteriorHero`, `.card`, `.icon-badge`, `Process`,
+`CtaBanner` as-is) at the user's explicit request to move fast across
+several linked changes in one pass, rather than running the full
+brief → design-skill → designer-review pipeline per page. No content was
+invented — same sourcing discipline as every other page, just without the
+separate documented steps.
