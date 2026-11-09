@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { withBasePath } from '@/lib/basePath';
 
 export default function Promo() {
@@ -18,10 +19,10 @@ export default function Promo() {
           <p className="nb-promo-text">
             Deterrence and patrol support planned around your property, complementing guarding and CCTV.
           </p>
-          <a href="/contact" className="btn btn--primary nb-promo-btn">
+          <Link href="/contact" className="btn btn--primary nb-promo-btn">
             Request a Quotation
             <i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
-          </a>
+          </Link>
         </div>
       </div>
     </section>

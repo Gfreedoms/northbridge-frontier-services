@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { withBasePath } from '@/lib/basePath';
 
 /**
@@ -21,7 +22,7 @@ export default function InteriorHero({ image, alt = '', breadcrumbCurrent, headi
       <div className="nb-interior-hero-overlay"></div>
       <div className="container nb-interior-hero-inner">
         <nav className="nb-interior-breadcrumb" aria-label="Breadcrumb">
-          <a href="/">Home</a>
+          <Link href="/">Home</Link>
           <span className="nb-interior-breadcrumb-sep">/</span>
           <span className="nb-interior-breadcrumb-current">{breadcrumbCurrent}</span>
         </nav>

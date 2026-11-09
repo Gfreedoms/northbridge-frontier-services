@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { withBasePath } from '@/lib/basePath';
 
 const AUTOPLAY_MS = 3000;
@@ -110,9 +111,9 @@ export default function Hero() {
             <div className="container nb-hero-content">
               <h1 className="nb-hero-heading">{slide.heading}</h1>
               <p className="nb-hero-subheading">{slide.subheading}</p>
-              <a href={slide.ctaHref} className="btn btn--primary nb-hero-cta">
+              <Link href={slide.ctaHref} className="btn btn--primary nb-hero-cta">
                 {slide.ctaText} <i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
-              </a>
+              </Link>
             </div>
           </div>
         ))}

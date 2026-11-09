@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function Footer() {
   return (
     <footer className="nb-footer">
@@ -6,33 +8,33 @@ export default function Footer() {
           <div className="nb-footer-col">
             <h3 className="nb-footer-col-title">Residential</h3>
             <ul className="nb-footer-links">
-              <li><a href="#services" className="nb-footer-link">Home &amp; Residential Security</a></li>
-              <li><a href="#services" className="nb-footer-link">Storage of Valuable Goods</a></li>
+              <li><Link href="/#services" className="nb-footer-link">Home &amp; Residential Security</Link></li>
+              <li><Link href="/#services" className="nb-footer-link">Storage of Valuable Goods</Link></li>
             </ul>
           </div>
 
           <div className="nb-footer-col">
             <h3 className="nb-footer-col-title">Corporate</h3>
             <ul className="nb-footer-links">
-              <li><a href="#services" className="nb-footer-link">Corporate &amp; Commercial Security</a></li>
-              <li><a href="#services" className="nb-footer-link">CCTV Camera Installation</a></li>
+              <li><Link href="/#services" className="nb-footer-link">Corporate &amp; Commercial Security</Link></li>
+              <li><Link href="/#services" className="nb-footer-link">CCTV Camera Installation</Link></li>
             </ul>
           </div>
 
           <div className="nb-footer-col">
             <h3 className="nb-footer-col-title">Specialist</h3>
             <ul className="nb-footer-links">
-              <li><a href="#services" className="nb-footer-link">Security Escorts</a></li>
-              <li><a href="#services" className="nb-footer-link">Security Dogs</a></li>
+              <li><Link href="/#services" className="nb-footer-link">Security Escorts</Link></li>
+              <li><Link href="/#services" className="nb-footer-link">Security Dogs</Link></li>
             </ul>
           </div>
 
           <div className="nb-footer-col">
             <h3 className="nb-footer-col-title">Company</h3>
             <ul className="nb-footer-links">
-              <li><a href="/about#who-we-are" className="nb-footer-link">Who We Are</a></li>
-              <li><a href="/about#mission" className="nb-footer-link">Mission &amp; Vision</a></li>
-              <li><a href="/about#values" className="nb-footer-link">Our Values</a></li>
+              <li><Link href="/about#who-we-are" className="nb-footer-link">Who We Are</Link></li>
+              <li><Link href="/about#mission" className="nb-footer-link">Mission &amp; Vision</Link></li>
+              <li><Link href="/about#values" className="nb-footer-link">Our Values</Link></li>
               {/* stub: careers page not yet built, phase 2 */}
               <li><a href="#" className="nb-footer-link">Careers</a></li>
             </ul>

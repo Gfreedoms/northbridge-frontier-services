@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { withBasePath } from '@/lib/basePath';
 
 const ICON_CARDS = [
@@ -140,16 +141,16 @@ export default function Services() {
                         <p className="nb-services-card-desc">{pkg.desc}</p>
                         <ul className="nb-services-card-links">
                           <li>
-                            <a href="/contact" className="nb-services-card-link">
+                            <Link href="/contact" className="nb-services-card-link">
                               <i className="fa-solid fa-circle-right" aria-hidden="true"></i>
                               <span>{pkg.linkA}</span>
-                            </a>
+                            </Link>
                           </li>
                           <li>
-                            <a href="/contact" className="nb-services-card-link">
+                            <Link href="/contact" className="nb-services-card-link">
                               <i className="fa-solid fa-circle-right" aria-hidden="true"></i>
                               <span>{pkg.linkB}</span>
-                            </a>
+                            </Link>
                           </li>
                         </ul>
                       </div>

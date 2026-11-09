@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function AboutCta() {
   return (
     <section className="section nb-aboutpage-cta" style={{ background: 'var(--color-bg)' }}>
@@ -8,10 +10,10 @@ export default function AboutCta() {
           discuss them. Additional assignments are considered according to suitability, available
           resources and applicable authorisations.
         </p>
-        <a href="/contact" className="btn btn--primary">
+        <Link href="/contact" className="btn btn--primary">
           Get in Touch
           <i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
-        </a>
+        </Link>
       </div>
     </section>
   );

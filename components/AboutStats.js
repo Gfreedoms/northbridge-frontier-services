@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { withBasePath } from '@/lib/basePath';
 
 export default function AboutStats() {
@@ -37,10 +38,10 @@ export default function AboutStats() {
             </div>
           </div>
 
-          <a href="/about" className="btn btn--primary nb-about-btn">
+          <Link href="/about" className="btn btn--primary nb-about-btn">
             Explore Who We Are
             <i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
-          </a>
+          </Link>
         </div>
       </div>
     </section>

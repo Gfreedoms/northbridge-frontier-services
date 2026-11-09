@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 
 const MEGA_SERVICES = [
   {
@@ -98,14 +99,14 @@ export default function Header() {
       {/* Utility bar */}
       <div className="nb-header-utility">
         <div className="container nb-header-utility-inner">
-          <a href="#" className="nb-header-logo" aria-label="Northbridge Frontier Services — Home">
+          <Link href="/" className="nb-header-logo" aria-label="Northbridge Frontier Services — Home">
             <span className="nb-header-logo-main">NORTHBRIDGE</span>
             <span className="nb-header-logo-sub">FRONTIER SERVICES</span>
-          </a>
+          </Link>
 
           <nav className="nb-header-nav" aria-label="Primary">
             <ul>
-              <li><a href="#">Home</a></li>
+              <li><Link href="/">Home</Link></li>
               <li className="nb-header-has-mega" ref={megaWrapperRef}>
                 <button
                   type="button"
@@ -123,7 +124,7 @@ export default function Header() {
                 >
                   <div className="nb-header-mega-grid">
                     {MEGA_SERVICES.map((item) => (
-                      <a href="#services" className="nb-header-mega-item" key={item.title}>
+                      <Link href="/#services" className="nb-header-mega-item" key={item.title}>
                         <span className="icon-badge nb-header-mega-icon">
                           <i className={`fa-solid ${item.icon}`} aria-hidden="true"></i>
                         </span>
@@ -131,19 +132,19 @@ export default function Header() {
                           <span className="nb-header-mega-title">{item.title}</span>
                           <span className="nb-header-mega-desc">{item.desc}</span>
                         </span>
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
               </li>
-              <li><a href="/about">About Us</a></li>
+              <li><Link href="/about">About Us</Link></li>
               <li><a href="#">Careers</a></li>
-              <li><a href="/contact">Contact</a></li>
+              <li><Link href="/contact">Contact</Link></li>
             </ul>
           </nav>
 
           <div className="nb-header-actions">
-            <a href="/contact" className="btn btn--dark btn--sm nb-header-callback">Request a Callback</a>
+            <Link href="/contact" className="btn btn--dark btn--sm nb-header-callback">Request a Callback</Link>
             <button type="button" className="nb-header-icon-btn nb-header-search" aria-label="Search">
               <i className="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
             </button>
@@ -167,17 +168,17 @@ export default function Header() {
           <ul className="nb-header-category-links">
             {CATEGORY_LINKS.map((item) => (
               <li key={item.label}>
-                <a href="#services">
+                <Link href="/#services">
                   <i className={`fa-solid ${item.icon}`} aria-hidden="true"></i>
                   <span>{item.label}</span>
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
 
           <div className="nb-header-category-actions">
             <a href="#" className="btn btn--outline btn--sm nb-header-portal-btn">Client Portal</a>
-            <a href="/contact" className="btn btn--sm nb-header-quote-btn">Get a Quote</a>
+            <Link href="/contact" className="btn btn--sm nb-header-quote-btn">Get a Quote</Link>
           </div>
         </div>
       </div>
@@ -189,7 +190,7 @@ export default function Header() {
         aria-label="Mobile"
       >
         <ul>
-          <li><a href="#" onClick={closeMobileNav}><i className="fa-solid fa-house" aria-hidden="true"></i>Home</a></li>
+          <li><Link href="/" onClick={closeMobileNav}><i className="fa-solid fa-house" aria-hidden="true"></i>Home</Link></li>
           <li className={`nb-header-mobile-accordion${isMobileServicesOpen ? ' is-open' : ''}`}>
             <button
               type="button"
@@ -205,20 +206,20 @@ export default function Header() {
               <ul className="nb-header-mobile-submenu-list">
                 {MOBILE_SERVICES.map((item) => (
                   <li key={item.label}>
-                    <a href="#services" onClick={closeMobileNav}>
+                    <Link href="/#services" onClick={closeMobileNav}>
                       <i className={`fa-solid ${item.icon}`} aria-hidden="true"></i>
                       {item.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
             </div>
           </li>
-          <li><a href="/about" onClick={closeMobileNav}><i className="fa-solid fa-circle-info" aria-hidden="true"></i>About Us</a></li>
+          <li><Link href="/about" onClick={closeMobileNav}><i className="fa-solid fa-circle-info" aria-hidden="true"></i>About Us</Link></li>
           <li><a href="#" onClick={closeMobileNav}><i className="fa-solid fa-briefcase" aria-hidden="true"></i>Careers</a></li>
-          <li><a href="/contact" onClick={closeMobileNav}><i className="fa-solid fa-envelope" aria-hidden="true"></i>Contact</a></li>
+          <li><Link href="/contact" onClick={closeMobileNav}><i className="fa-solid fa-envelope" aria-hidden="true"></i>Contact</Link></li>
         </ul>
-        <a href="/contact" className="btn btn--primary nb-header-mobile-cta" onClick={closeMobileNav}>Request a Callback</a>
+        <Link href="/contact" className="btn btn--primary nb-header-mobile-cta" onClick={closeMobileNav}>Request a Callback</Link>
       </nav>
     </header>
   );
