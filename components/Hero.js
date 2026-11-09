@@ -4,7 +4,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { withBasePath } from '@/lib/basePath';
 
-const AUTOPLAY_MS = 6000;
+const AUTOPLAY_MS = 3000;
 
 const SLIDES = [
   {
