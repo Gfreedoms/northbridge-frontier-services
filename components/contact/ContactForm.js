@@ -10,18 +10,30 @@ const MESSAGE_MAX = 600;
 
 const SERVICES = [...SERVICES_DATA.map((s) => s.label), 'Other / not sure yet'];
 
-function SuccessPanel({ onReset }) {
+function SuccessPanel({ onReset, viaMailto }) {
   return (
     <div className="nb-contactpage-success">
       <svg className="nb-contactpage-success-check" viewBox="0 0 52 52" aria-hidden="true">
         <circle className="nb-contactpage-success-check-circle" cx="26" cy="26" r="23" />
         <path className="nb-contactpage-success-check-mark" d="M15 27 L23 34 L38 17" />
       </svg>
-      <h3 className="nb-contactpage-success-heading">Your Enquiry Is Ready to Send</h3>
+      <h3 className="nb-contactpage-success-heading">
+        {viaMailto ? 'Your Enquiry Is Ready to Send' : 'Enquiry Sent'}
+      </h3>
       <p className="nb-contactpage-success-body">
-        We&apos;ve opened your email app with your details, addressed to our team. If it didn&apos;t
-        open automatically, email us directly at{' '}
-        <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+        {viaMailto ? (
+          <>
+            We&apos;ve opened your email app with your details, addressed to our team. If it
+            didn&apos;t open automatically, email us directly at{' '}
+            <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+          </>
+        ) : (
+          <>
+            Thanks — your enquiry has reached our team and we&apos;ll be in touch shortly. If you
+            don&apos;t hear back, email us directly at{' '}
+            <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+          </>
+        )}
       </p>
       <button type="button" className="btn btn--outline-dark" onClick={onReset}>
         Send Another Enquiry
@@ -39,6 +51,7 @@ function ContactFormInner() {
   const [selectedService, setSelectedService] = useState('');
   const [buttonLabel, setButtonLabel] = useState('Send Enquiry');
   const [submitted, setSubmitted] = useState(false);
+  const [sentViaMailto, setSentViaMailto] = useState(false);
   const formRef = useRef(null);
   const resetTimerRef = useRef(null);
 
@@ -68,6 +81,7 @@ function ContactFormInner() {
       });
       if (error) throw error;
       setButtonLabel('Send Enquiry');
+      setSentViaMailto(false);
       setSubmitted(true);
       return;
     } catch {
@@ -93,6 +107,7 @@ function ContactFormInner() {
     clearTimeout(resetTimerRef.current);
     resetTimerRef.current = setTimeout(() => {
       setButtonLabel('Send Enquiry');
+      setSentViaMailto(true);
       setSubmitted(true);
     }, 600);
 
@@ -113,7 +128,7 @@ function ContactFormInner() {
         <h2 className="section-heading">Send Us an Enquiry</h2>
 
         {submitted ? (
-          <SuccessPanel onReset={handleReset} />
+          <SuccessPanel onReset={handleReset} viaMailto={sentViaMailto} />
         ) : (
           <>
             {prefillService && (
@@ -190,10 +205,10 @@ function ContactFormInner() {
                   <i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
                 </button>
                 <span className="nb-contactpage-submit-helper">
-                  This opens your email app with the details above, addressed to our team.
+                  This sends your enquiry straight to our team.
                 </span>
                 <span className="nb-contactpage-submit-fallback">
-                  If nothing opens, email us directly at{' '}
+                  If it doesn&apos;t go through, email us directly at{' '}
                   <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
                 </span>
               </div>
