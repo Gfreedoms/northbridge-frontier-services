@@ -3,8 +3,9 @@
 import { Suspense, useEffect, useRef, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { SERVICES as SERVICES_DATA, getServiceBySlug } from '@/lib/servicesData';
+import { supabase } from '@/lib/supabaseClient';
+import { CONTACT_EMAIL } from '@/lib/contact';
 
-const CONTACT_EMAIL = 'info@northbridgefrontier.ug'; // placeholder — replace with real address
 const MESSAGE_MAX = 600;
 
 const SERVICES = [...SERVICES_DATA.map((s) => s.label), 'Other / not sure yet'];
@@ -45,7 +46,7 @@ function ContactFormInner() {
     if (prefillService) setSelectedService(prefillService.label);
   }, [prefillService]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const form = formRef.current;
     if (!form.reportValidity()) return;
@@ -58,6 +59,21 @@ function ContactFormInner() {
     const location = data.get('location');
     const startDate = data.get('startDate');
     const msg = data.get('message');
+
+    setButtonLabel('Sending…');
+
+    try {
+      const { error } = await supabase.functions.invoke('nb-send-enquiry', {
+        body: { name, email, phone: phone || undefined, service, location, startDate: startDate || undefined, message: msg || undefined },
+      });
+      if (error) throw error;
+      setButtonLabel('Send Enquiry');
+      setSubmitted(true);
+      return;
+    } catch {
+      // Edge function unreachable — fall back to a mailto draft so the
+      // enquiry is never silently lost.
+    }
 
     const subject = `Enquiry from ${name} — ${service}`;
     const bodyLines = [

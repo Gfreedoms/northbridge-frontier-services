@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { CONTACT_ADDRESS, CONTACT_EMAIL, CONTACT_PHONE_DISPLAY } from '@/lib/contact';
 
 export default function Footer() {
   return (
@@ -37,6 +38,7 @@ export default function Footer() {
               <li><Link href="/about#values" className="nb-footer-link">Our Values</Link></li>
               <li><Link href="/services" className="nb-footer-link">All Services</Link></li>
               <li><Link href="/careers" className="nb-footer-link">Careers</Link></li>
+              <li><Link href="/track" className="nb-footer-link">Track Your Request</Link></li>
             </ul>
           </div>
 
@@ -45,18 +47,15 @@ export default function Footer() {
             <ul className="nb-footer-contact-list">
               <li className="nb-footer-contact-item">
                 <i className="fa-solid fa-location-dot nb-footer-contact-icon" aria-hidden="true"></i>
-                {/* placeholder address — replace with real HQ address when available */}
-                <span>Northbridge Frontier Services Ltd, Uganda</span>
+                <span>{CONTACT_ADDRESS}</span>
               </li>
               <li className="nb-footer-contact-item">
                 <i className="fa-solid fa-phone nb-footer-contact-icon" aria-hidden="true"></i>
-                {/* placeholder phone — replace with real number */}
-                <span>+256 700 000 000</span>
+                <span>{CONTACT_PHONE_DISPLAY}</span>
               </li>
               <li className="nb-footer-contact-item">
                 <i className="fa-solid fa-envelope nb-footer-contact-icon" aria-hidden="true"></i>
-                {/* placeholder email — replace with real domain/email */}
-                <span>info@northbridgefrontier.ug</span>
+                <span>{CONTACT_EMAIL}</span>
               </li>
             </ul>
           </div>

@@ -149,6 +149,7 @@ export default function Header() {
               <li><Link href="/about">About Us</Link></li>
               <li><Link href="/careers">Careers</Link></li>
               <li><Link href="/contact">Contact</Link></li>
+              <li><Link href="/track">Track Request</Link></li>
             </ul>
           </nav>
 
@@ -231,6 +232,7 @@ export default function Header() {
           <li><Link href="/about" onClick={closeMobileNav}><i className="fa-solid fa-circle-info" aria-hidden="true"></i>About Us</Link></li>
           <li><Link href="/careers" onClick={closeMobileNav}><i className="fa-solid fa-briefcase" aria-hidden="true"></i>Careers</Link></li>
           <li><Link href="/contact" onClick={closeMobileNav}><i className="fa-solid fa-envelope" aria-hidden="true"></i>Contact</Link></li>
+          <li><Link href="/track" onClick={closeMobileNav}><i className="fa-solid fa-magnifying-glass-location" aria-hidden="true"></i>Track Request</Link></li>
         </ul>
         <Link href="/contact" className="btn btn--primary nb-header-mobile-cta" onClick={closeMobileNav}>Request a Callback</Link>
       </nav>
