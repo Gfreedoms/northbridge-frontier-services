@@ -32,35 +32,38 @@ const styles = StyleSheet.create({
   bottomBar: { height: 4, backgroundColor: COLORS.primary, position: 'absolute', bottom: 0, left: 0, right: 0 },
 
   frame: {
-    margin: 26,
+    marginTop: 22,
+    marginBottom: 46,
+    marginLeft: 24,
+    marginRight: 24,
     borderWidth: 1.2,
     borderColor: COLORS.border,
-    padding: 30,
+    padding: 24,
   },
 
   // Dateline header
   headerRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start' },
   monogramRow: { flexDirection: 'row', alignItems: 'center' },
-  monogram: { width: 32, height: 32, borderRadius: 5, backgroundColor: COLORS.primary, alignItems: 'center', justifyContent: 'center', marginRight: 10 },
-  monogramText: { color: '#fff', fontSize: 12, fontWeight: 700, letterSpacing: 0.3 },
+  monogram: { width: 30, height: 30, borderRadius: 5, backgroundColor: COLORS.primary, alignItems: 'center', justifyContent: 'center', marginRight: 10 },
+  monogramText: { color: '#fff', fontSize: 11, fontWeight: 700, letterSpacing: 0.3 },
   companyName: { fontSize: 10.5, fontWeight: 700, color: COLORS.ink, letterSpacing: 0.2 },
   companyTagline: { fontSize: 6.5, color: COLORS.muted, letterSpacing: 0.4, marginTop: 2, textTransform: 'uppercase' },
   dateBlock: { alignItems: 'flex-end' },
   dateLabel: { fontSize: 6.5, color: COLORS.muted, textTransform: 'uppercase', letterSpacing: 0.5 },
   dateValue: { fontSize: 9, fontWeight: 700, color: COLORS.ink, marginTop: 2 },
 
-  headerRule: { height: 1.2, backgroundColor: COLORS.primary, marginTop: 16, marginBottom: 22 },
+  headerRule: { height: 1.2, backgroundColor: COLORS.primary, marginTop: 12, marginBottom: 16 },
 
   // Hero title
-  heroWrap: { alignItems: 'center', marginBottom: 20 },
+  heroWrap: { alignItems: 'center', marginBottom: 14 },
   heroEyebrow: { fontSize: 7.5, color: COLORS.primaryDark, letterSpacing: 2, textTransform: 'uppercase', fontWeight: 700 },
-  heroTitle: { fontSize: 21, fontWeight: 700, color: COLORS.ink, letterSpacing: 0.5, marginTop: 6, textTransform: 'uppercase' },
-  heroRule: { width: 40, height: 2, backgroundColor: COLORS.primary, marginTop: 10, marginBottom: 10 },
-  heroSubtitle: { fontSize: 8.5, color: COLORS.muted, textAlign: 'center', maxWidth: 360, lineHeight: 1.4 },
+  heroTitle: { fontSize: 19, fontWeight: 700, color: COLORS.ink, letterSpacing: 0.5, marginTop: 5, textTransform: 'uppercase' },
+  heroRule: { width: 36, height: 2, backgroundColor: COLORS.primary, marginTop: 8, marginBottom: 8 },
+  heroSubtitle: { fontSize: 8.5, color: COLORS.muted, textAlign: 'center', maxWidth: 380, lineHeight: 1.35 },
 
   // Info strip
-  infoStrip: { flexDirection: 'row', borderWidth: 1, borderColor: COLORS.border, borderRadius: 3, marginBottom: 26 },
-  infoStripItem: { flex: 1, alignItems: 'center', paddingVertical: 13, paddingHorizontal: 6 },
+  infoStrip: { flexDirection: 'row', borderWidth: 1, borderColor: COLORS.border, borderRadius: 3, marginBottom: 18 },
+  infoStripItem: { flex: 1, alignItems: 'center', paddingVertical: 10, paddingHorizontal: 6 },
   infoStripDivider: { width: 1, backgroundColor: COLORS.border },
   infoStripLabel: { fontSize: 6.5, color: COLORS.muted, textTransform: 'uppercase', letterSpacing: 0.6, marginBottom: 5 },
   infoStripValue: { fontSize: 11, fontWeight: 700, color: COLORS.ink },
@@ -68,8 +71,8 @@ const styles = StyleSheet.create({
   statusPillText: { fontSize: 8.5, fontWeight: 700, textTransform: 'capitalize' },
 
   // Numbered sections
-  section: { marginBottom: 20 },
-  sectionHeadingRow: { flexDirection: 'row', alignItems: 'center', marginBottom: 9 },
+  section: { marginBottom: 14 },
+  sectionHeadingRow: { flexDirection: 'row', alignItems: 'center', marginBottom: 7 },
   sectionNumberBadge: { width: 16, height: 16, borderRadius: 3, backgroundColor: COLORS.primary, alignItems: 'center', justifyContent: 'center', marginRight: 8 },
   sectionNumberText: { fontSize: 8, fontWeight: 700, color: '#fff' },
   sectionHeadingText: { fontSize: 9.5, fontWeight: 700, color: COLORS.ink, textTransform: 'uppercase', letterSpacing: 0.7 },
@@ -78,34 +81,36 @@ const styles = StyleSheet.create({
   tableRow: { flexDirection: 'row', borderBottomWidth: 1, borderBottomColor: COLORS.border },
   tableRowLast: { borderBottomWidth: 0 },
   tableRowAlt: { backgroundColor: COLORS.surfaceMuted },
-  tableLabelCell: { width: '34%', paddingVertical: 7, paddingHorizontal: 10, borderRightWidth: 1, borderRightColor: COLORS.border, justifyContent: 'center' },
+  tableLabelCell: { width: '34%', paddingVertical: 6, paddingHorizontal: 10, borderRightWidth: 1, borderRightColor: COLORS.border, justifyContent: 'center' },
   tableLabelText: { fontSize: 7.5, color: COLORS.muted, textTransform: 'uppercase', letterSpacing: 0.3 },
-  tableValueCell: { flex: 1, paddingVertical: 7, paddingHorizontal: 10, justifyContent: 'center' },
+  tableValueCell: { flex: 1, paddingVertical: 6, paddingHorizontal: 10, justifyContent: 'center' },
   tableValueText: { fontSize: 9, fontWeight: 700, color: COLORS.ink },
 
   // Terms box
-  termsBox: { borderWidth: 1, borderColor: COLORS.border, borderRadius: 2, padding: 14 },
-  termsHeading: { fontSize: 8, fontWeight: 700, color: COLORS.primaryDark, textTransform: 'uppercase', letterSpacing: 0.6, marginBottom: 8 },
-  termsText: { fontSize: 8.5, lineHeight: 1.6, color: COLORS.ink, textAlign: 'justify' },
+  termsBox: { borderWidth: 1, borderColor: COLORS.border, borderRadius: 2, padding: 11 },
+  termsHeading: { fontSize: 8, fontWeight: 700, color: COLORS.primaryDark, textTransform: 'uppercase', letterSpacing: 0.6, marginBottom: 6 },
+  termsText: { fontSize: 8.5, lineHeight: 1.5, color: COLORS.ink, textAlign: 'justify' },
 
   // Signatures + verification
-  bottomRow: { flexDirection: 'row', justifyContent: 'space-between', marginTop: 24 },
+  bottomRow: { flexDirection: 'row', justifyContent: 'space-between', marginTop: 16 },
   sigBlock: { width: '31%' },
-  sigBlockTitle: { fontSize: 7.5, fontWeight: 700, color: COLORS.ink, textTransform: 'uppercase', letterSpacing: 0.4, marginBottom: 10 },
-  sigLineRow: { flexDirection: 'row', alignItems: 'flex-end', marginBottom: 10 },
+  sigBlockTitle: { fontSize: 7.5, fontWeight: 700, color: COLORS.ink, textTransform: 'uppercase', letterSpacing: 0.4, marginBottom: 8 },
+  sigLineRow: { flexDirection: 'row', alignItems: 'flex-end', marginBottom: 8 },
   sigLineLabel: { fontSize: 7.5, color: COLORS.muted, width: 46 },
-  sigLineBlank: { flex: 1, borderBottomWidth: 1, borderBottomColor: COLORS.muted, height: 12 },
+  sigLineBlank: { flex: 1, borderBottomWidth: 1, borderBottomColor: COLORS.muted, height: 11 },
 
-  verifyBox: { width: '31%', borderWidth: 1, borderStyle: 'dashed', borderColor: COLORS.border, borderRadius: 3, padding: 10, alignItems: 'center' },
-  verifyTitle: { fontSize: 7, fontWeight: 700, color: COLORS.primaryDark, textTransform: 'uppercase', letterSpacing: 0.5, marginBottom: 8 },
-  qrImage: { width: 64, height: 64 },
-  verifyCode: { fontSize: 7.5, fontWeight: 700, color: COLORS.ink, marginTop: 8 },
+  verifyBox: { width: '31%', borderWidth: 1, borderStyle: 'dashed', borderColor: COLORS.border, borderRadius: 3, padding: 9, alignItems: 'center' },
+  verifyTitle: { fontSize: 7, fontWeight: 700, color: COLORS.primaryDark, textTransform: 'uppercase', letterSpacing: 0.5, marginBottom: 7 },
+  qrImage: { width: 58, height: 58 },
+  verifyCode: { fontSize: 7.5, fontWeight: 700, color: COLORS.ink, marginTop: 7 },
   verifyCaption: { fontSize: 6, color: COLORS.muted, marginTop: 3, textAlign: 'center' },
 
-  // Footer
-  footerRule: { height: 1, backgroundColor: COLORS.border, marginTop: 24, marginBottom: 10 },
+  // Footer — a direct Page child (not nested in `frame`) so `fixed` repeats
+  // it at the same spot on every page, inside the margin the frame leaves.
+  footer: { position: 'absolute', bottom: 16, left: 24, right: 24 },
+  footerRule: { height: 1, backgroundColor: COLORS.border, marginBottom: 6 },
   footerLine: { fontSize: 7.5, color: COLORS.muted, textAlign: 'center' },
-  footerNote: { fontSize: 6.5, color: COLORS.muted, textAlign: 'center', marginTop: 4, fontStyle: 'italic' },
+  footerNote: { fontSize: 6.5, color: COLORS.muted, textAlign: 'center', marginTop: 3, fontStyle: 'italic' },
 });
 
 const DOC_TYPE_TITLE = {
@@ -184,7 +189,7 @@ function SectionTable({ number, title, rows }) {
   const visibleRows = rows.filter(([, value]) => value);
   if (visibleRows.length === 0) return null;
   return (
-    <View style={styles.section}>
+    <View style={styles.section} wrap={false}>
       <View style={styles.sectionHeadingRow}>
         <View style={styles.sectionNumberBadge}>
           <Text style={styles.sectionNumberText}>{number}</Text>
@@ -216,7 +221,7 @@ function SectionTable({ number, title, rows }) {
 
 function TermsBox({ heading, children }) {
   return (
-    <View style={styles.termsBox}>
+    <View style={styles.termsBox} wrap={false}>
       <Text style={styles.termsHeading}>{heading}</Text>
       <Text style={styles.termsText}>{children}</Text>
     </View>
@@ -256,7 +261,7 @@ function VerificationBox({ record, qrDataUrl }) {
 
 function Footer() {
   return (
-    <>
+    <View style={styles.footer} fixed>
       <View style={styles.footerRule} />
       <Text style={styles.footerLine}>
         {COMPANY_NAME} · {CONTACT_PHONE_DISPLAY} · {CONTACT_EMAIL}
@@ -265,7 +270,7 @@ function Footer() {
         This is a system-generated document issued by {COMPANY_NAME}. No signature is required
         for validity unless stated above.
       </Text>
-    </>
+    </View>
   );
 }
 
@@ -309,7 +314,7 @@ export function CustodyReceipt({ record, client, qrDataUrl }) {
             ]}
           />
 
-          <View style={{ marginBottom: 24 }}>
+          <View style={{ marginBottom: 16 }} wrap={false}>
             <View style={styles.sectionHeadingRow}>
               <View style={styles.sectionNumberBadge}>
                 <Text style={styles.sectionNumberText}>3</Text>
@@ -327,14 +332,13 @@ export function CustodyReceipt({ record, client, qrDataUrl }) {
             </TermsBox>
           </View>
 
-          <View style={styles.bottomRow}>
+          <View style={styles.bottomRow} wrap={false}>
             <SignatureBlock title="Depositor" />
             <SignatureBlock title={`Authorised Officer\n— ${COMPANY_NAME}`} />
             <VerificationBox record={record} qrDataUrl={qrDataUrl} />
           </View>
-
-          <Footer />
         </View>
+        <Footer />
         <View style={styles.bottomBar} fixed />
       </Page>
     </Document>
@@ -377,7 +381,7 @@ export function ServiceConfirmation({ record, client, qrDataUrl }) {
 
           <SectionTable number="2" title={serviceLabel(record.service_type)} rows={fields.map(([key, label]) => [label, d[key]])} />
 
-          <View style={{ marginBottom: 24 }}>
+          <View style={{ marginBottom: 16 }} wrap={false}>
             <View style={styles.sectionHeadingRow}>
               <View style={styles.sectionNumberBadge}>
                 <Text style={styles.sectionNumberText}>3</Text>
@@ -392,14 +396,13 @@ export function ServiceConfirmation({ record, client, qrDataUrl }) {
             </TermsBox>
           </View>
 
-          <View style={styles.bottomRow}>
+          <View style={styles.bottomRow} wrap={false}>
             <SignatureBlock title="Client" />
             <SignatureBlock title={`Authorised Officer\n— ${COMPANY_NAME}`} />
             <VerificationBox record={record} qrDataUrl={qrDataUrl} />
           </View>
-
-          <Footer />
         </View>
+        <Footer />
         <View style={styles.bottomBar} fixed />
       </Page>
     </Document>
