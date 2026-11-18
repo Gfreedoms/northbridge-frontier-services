@@ -61,9 +61,20 @@ export default function AdminShell({ children }) {
       .from('nb_profiles')
       .select('id, full_name, role, email')
       .eq('id', session.user.id)
-      .single()
+      .maybeSingle()
       .then(({ data }) => {
-        if (active) setProfile(data || null);
+        if (!active) return;
+        if (data) {
+          setProfile(data);
+          return;
+        }
+        // A session exists but there's no matching nb_profiles row — this
+        // account isn't Northbridge staff (e.g. a stray session left behind
+        // by a sister app sharing this Supabase project/origin). Sign out
+        // instead of hanging on "Loading" forever.
+        supabase.auth.signOut().then(() => {
+          if (active) setSession(null);
+        });
       });
     return () => {
       active = false;
