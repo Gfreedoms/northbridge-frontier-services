@@ -275,5 +275,11 @@ with check (exists (select 1 from public.nb_service_records sr where sr.id = ser
 create policy "nb_documents_update" on public.nb_documents for update
 using (exists (select 1 from public.nb_service_records sr where sr.id = service_record_id));
 
+create policy "nb_documents_delete" on public.nb_documents for delete
+using (exists (select 1 from public.nb_service_records sr where sr.id = service_record_id));
+
+create policy "nb_documents_bucket_delete_authenticated" on storage.objects for delete
+using (bucket_id = 'nb-documents' and auth.uid() is not null);
+
 -- nb_track_attempts: RLS enabled, no policies at all — only the SECURITY DEFINER
 -- function above can read or write it. This is deliberate, not an oversight.
