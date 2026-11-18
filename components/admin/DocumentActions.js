@@ -45,9 +45,12 @@ export default function DocumentActions({ record, client }) {
       const doc = receiptDocumentFor(docType, { record, client, qrDataUrl });
       const blob = await pdf(doc).toBlob();
 
-      const filePath = `${record.id}/${docType}-${Date.now()}.pdf`;
+      // One document per record — a stable path + upsert:true overwrites the
+      // same file in place instead of piling up a new one on every click.
+      const filePath = `${record.id}/${docType}.pdf`;
       const { error: uploadError } = await supabase.storage.from(BUCKET).upload(filePath, blob, {
         contentType: 'application/pdf',
+        upsert: true,
       });
       if (uploadError) throw uploadError;
 
@@ -55,13 +58,22 @@ export default function DocumentActions({ record, client }) {
         data: { user },
       } = await supabase.auth.getUser();
 
-      const { error: insertError } = await supabase.from('nb_documents').insert({
-        service_record_id: record.id,
-        doc_type: docType,
-        file_path: filePath,
-        generated_by: user?.id,
-      });
-      if (insertError) throw insertError;
+      const existing = documents[0];
+      if (existing) {
+        const { error: updateError } = await supabase
+          .from('nb_documents')
+          .update({ doc_type: docType, file_path: filePath, generated_by: user?.id, generated_at: new Date().toISOString() })
+          .eq('id', existing.id);
+        if (updateError) throw updateError;
+      } else {
+        const { error: insertError } = await supabase.from('nb_documents').insert({
+          service_record_id: record.id,
+          doc_type: docType,
+          file_path: filePath,
+          generated_by: user?.id,
+        });
+        if (insertError) throw insertError;
+      }
 
       await loadDocuments();
     } catch (err) {
