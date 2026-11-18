@@ -31,10 +31,10 @@ const styles = StyleSheet.create({
   topBar: { height: 8, backgroundColor: COLORS.primary },
 
   frame: {
-    margin: 22,
+    margin: 18,
     borderWidth: 1.2,
     borderColor: COLORS.border,
-    padding: 24,
+    padding: 20,
   },
 
   // Dateline header
@@ -77,9 +77,9 @@ const styles = StyleSheet.create({
   tableRow: { flexDirection: 'row', borderBottomWidth: 1, borderBottomColor: COLORS.border },
   tableRowLast: { borderBottomWidth: 0 },
   tableRowAlt: { backgroundColor: COLORS.surfaceMuted },
-  tableLabelCell: { width: '34%', paddingVertical: 6, paddingHorizontal: 10, borderRightWidth: 1, borderRightColor: COLORS.border, justifyContent: 'center' },
+  tableLabelCell: { width: '34%', paddingVertical: 5, paddingHorizontal: 10, borderRightWidth: 1, borderRightColor: COLORS.border, justifyContent: 'center' },
   tableLabelText: { fontSize: 7.5, color: COLORS.muted, textTransform: 'uppercase', letterSpacing: 0.3 },
-  tableValueCell: { flex: 1, paddingVertical: 6, paddingHorizontal: 10, justifyContent: 'center' },
+  tableValueCell: { flex: 1, paddingVertical: 5, paddingHorizontal: 10, justifyContent: 'center' },
   tableValueText: { fontSize: 9, fontWeight: 700, color: COLORS.ink },
 
   // Terms box
@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
   // page-level footer sounds nicer for multi-page docs, but it pushed
   // react-pdf's pagination estimate into spawning a phantom near-empty
   // trailing page even when everything actually fit on page one.)
-  footerRule: { height: 1, backgroundColor: COLORS.border, marginTop: 16, marginBottom: 6 },
+  footerRule: { height: 1, backgroundColor: COLORS.border, marginTop: 10, marginBottom: 5 },
   footerLine: { fontSize: 7.5, color: COLORS.muted, textAlign: 'center' },
   footerNote: { fontSize: 6.5, color: COLORS.muted, textAlign: 'center', marginTop: 3, fontStyle: 'italic' },
 });
