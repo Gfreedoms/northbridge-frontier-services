@@ -32,10 +32,7 @@ const styles = StyleSheet.create({
   bottomBar: { height: 4, backgroundColor: COLORS.primary, position: 'absolute', bottom: 0, left: 0, right: 0 },
 
   frame: {
-    marginTop: 22,
-    marginBottom: 46,
-    marginLeft: 24,
-    marginRight: 24,
+    margin: 22,
     borderWidth: 1.2,
     borderColor: COLORS.border,
     padding: 24,
@@ -105,10 +102,11 @@ const styles = StyleSheet.create({
   verifyCode: { fontSize: 7.5, fontWeight: 700, color: COLORS.ink, marginTop: 7 },
   verifyCaption: { fontSize: 6, color: COLORS.muted, marginTop: 3, textAlign: 'center' },
 
-  // Footer — a direct Page child (not nested in `frame`) so `fixed` repeats
-  // it at the same spot on every page, inside the margin the frame leaves.
-  footer: { position: 'absolute', bottom: 16, left: 24, right: 24 },
-  footerRule: { height: 1, backgroundColor: COLORS.border, marginBottom: 6 },
+  // Footer — normal in-flow content at the end of the frame. (A `fixed`
+  // page-level footer sounds nicer for multi-page docs, but it pushed
+  // react-pdf's pagination estimate into spawning a phantom near-empty
+  // trailing page even when everything actually fit on page one.)
+  footerRule: { height: 1, backgroundColor: COLORS.border, marginTop: 16, marginBottom: 6 },
   footerLine: { fontSize: 7.5, color: COLORS.muted, textAlign: 'center' },
   footerNote: { fontSize: 6.5, color: COLORS.muted, textAlign: 'center', marginTop: 3, fontStyle: 'italic' },
 });
@@ -261,7 +259,7 @@ function VerificationBox({ record, qrDataUrl }) {
 
 function Footer() {
   return (
-    <View style={styles.footer} fixed>
+    <View wrap={false}>
       <View style={styles.footerRule} />
       <Text style={styles.footerLine}>
         {COMPANY_NAME} · {CONTACT_PHONE_DISPLAY} · {CONTACT_EMAIL}
@@ -337,8 +335,9 @@ export function CustodyReceipt({ record, client, qrDataUrl }) {
             <SignatureBlock title={`Authorised Officer\n— ${COMPANY_NAME}`} />
             <VerificationBox record={record} qrDataUrl={qrDataUrl} />
           </View>
+
+          <Footer />
         </View>
-        <Footer />
         <View style={styles.bottomBar} fixed />
       </Page>
     </Document>
@@ -401,8 +400,9 @@ export function ServiceConfirmation({ record, client, qrDataUrl }) {
             <SignatureBlock title={`Authorised Officer\n— ${COMPANY_NAME}`} />
             <VerificationBox record={record} qrDataUrl={qrDataUrl} />
           </View>
+
+          <Footer />
         </View>
-        <Footer />
         <View style={styles.bottomBar} fixed />
       </Page>
     </Document>
