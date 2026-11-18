@@ -6,6 +6,7 @@ import { pdf } from '@react-pdf/renderer';
 import { supabase } from '@/lib/supabaseClient';
 import { basePath } from '@/lib/basePath';
 import { docTypeForService } from '@/lib/services';
+import { toWhatsAppDigits } from '@/lib/phone';
 import { receiptDocumentFor } from '@/components/pdf/ReceiptDocument';
 
 const BUCKET = 'nb-documents';
@@ -16,6 +17,7 @@ export default function DocumentActions({ record, client }) {
   const [generating, setGenerating] = useState(false);
   const [busyDocId, setBusyDocId] = useState(null);
   const [error, setError] = useState('');
+  const [mailtoFallback, setMailtoFallback] = useState(null); // { docId, url }
 
   const loadDocuments = async () => {
     const { data } = await supabase
@@ -86,34 +88,47 @@ export default function DocumentActions({ record, client }) {
   const handleEmail = async (doc) => {
     setBusyDocId(doc.id);
     setError('');
+    setMailtoFallback(null);
     try {
       const { error: fnError } = await supabase.functions.invoke('nb-send-receipt', {
         body: { documentId: doc.id },
       });
       if (fnError) throw fnError;
+      await supabase.from('nb_documents').update({ emailed_at: new Date().toISOString() }).eq('id', doc.id);
+      await loadDocuments();
     } catch {
+      // Don't call window.open() here — by this point we're past an await,
+      // so Chrome's popup blocker silently kills it with no error shown.
+      // Surface a real link instead so the admin's own click opens it.
       if (client.email) {
-        window.open(
-          `mailto:${client.email}?subject=${encodeURIComponent(`Your ${record.tracking_number} document — Northbridge Frontier Services`)}&body=${encodeURIComponent(
-            'Please find your document attached. If you did not receive an attachment, contact our office quoting your tracking number.'
-          )}`,
-          '_blank'
-        );
+        const mailtoUrl = `mailto:${client.email}?subject=${encodeURIComponent(`Your ${record.tracking_number} document — Northbridge Frontier Services`)}&body=${encodeURIComponent(
+          'Please find your document attached. If you did not receive an attachment, contact our office quoting your tracking number.'
+        )}`;
+        setMailtoFallback({ docId: doc.id, url: mailtoUrl });
+        setError('Could not send automatically — use the link below to open an email draft instead.');
       } else {
         setError('This client has no email on file, and the email service could not be reached.');
       }
     } finally {
-      await supabase.from('nb_documents').update({ emailed_at: new Date().toISOString() }).eq('id', doc.id);
-      await loadDocuments();
       setBusyDocId(null);
     }
+  };
+
+  const handleMailtoFallbackClick = async (doc) => {
+    await supabase.from('nb_documents').update({ emailed_at: new Date().toISOString() }).eq('id', doc.id);
+    await loadDocuments();
+    setMailtoFallback(null);
   };
 
   const handleWhatsApp = async (doc) => {
     setBusyDocId(doc.id);
     setError('');
     try {
-      const digits = (client.phone || '').replace(/\D/g, '');
+      const digits = toWhatsAppDigits(client.phone);
+      if (!digits) {
+        setError('This client has no usable phone number on file.');
+        return;
+      }
       const docUrl = `${window.location.origin}${basePath}/doc/?id=${doc.id}`;
       const message = `Hello ${client.full_name}, here is your document for tracking number ${record.tracking_number}: ${docUrl}`;
       window.open(`https://wa.me/${digits}?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
@@ -156,6 +171,16 @@ export default function DocumentActions({ record, client }) {
                 <i className="fa-brands fa-whatsapp" aria-hidden="true"></i> Share on WhatsApp
               </button>
             </div>
+            {mailtoFallback?.docId === doc.id && (
+              <a
+                href={mailtoFallback.url}
+                onClick={() => handleMailtoFallbackClick(doc)}
+                className="btn btn--outline-dark btn--sm"
+                style={{ marginTop: 10, display: 'inline-flex' }}
+              >
+                <i className="fa-solid fa-envelope-open-text" aria-hidden="true"></i> Open Email Draft
+              </a>
+            )}
           </div>
         ))
       )}
