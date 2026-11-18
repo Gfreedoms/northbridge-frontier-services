@@ -11,8 +11,8 @@ const COLORS = {
   tint: '#F6E3E7',
   ink: '#212529',
   muted: '#5B6770',
-  surfaceMuted: '#F5F5F6',
-  border: '#E3E3E3',
+  surfaceMuted: '#F7F7F8',
+  border: '#D8D9DB',
   success: '#1E8A4C',
   successTint: '#E3F3E9',
 };
@@ -28,234 +28,314 @@ const STATUS_COLORS = {
 
 const styles = StyleSheet.create({
   page: { fontSize: 9.5, color: COLORS.ink, fontFamily: 'Helvetica' },
-  topBar: { height: 6, backgroundColor: COLORS.primary },
-  body: { padding: '24 36 36 36' },
+  topBar: { height: 8, backgroundColor: COLORS.primary },
+  bottomBar: { height: 4, backgroundColor: COLORS.primary, position: 'absolute', bottom: 0, left: 0, right: 0 },
 
-  letterhead: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start' },
-  companyName: { fontSize: 15, fontWeight: 700, color: COLORS.primaryDark, letterSpacing: 0.4 },
-  companyTagline: { fontSize: 7.5, color: COLORS.muted, letterSpacing: 0.6, marginTop: 3, textTransform: 'uppercase' },
-  docTypeBadge: {
-    alignSelf: 'flex-start',
-    borderWidth: 1,
-    borderColor: COLORS.primary,
-    borderRadius: 3,
-    paddingVertical: 4,
-    paddingHorizontal: 10,
+  frame: {
+    margin: 26,
+    borderWidth: 1.2,
+    borderColor: COLORS.border,
+    padding: 30,
   },
-  docTypeBadgeText: { fontSize: 7.5, fontWeight: 700, color: COLORS.primaryDark, letterSpacing: 0.6, textTransform: 'uppercase' },
-  letterheadRule: { height: 1, backgroundColor: COLORS.border, marginTop: 16, marginBottom: 20 },
 
-  columns: { flexDirection: 'row' },
-  leftCol: { flex: 1, paddingRight: 24 },
+  // Dateline header
+  headerRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start' },
+  monogramRow: { flexDirection: 'row', alignItems: 'center' },
+  monogram: { width: 32, height: 32, borderRadius: 5, backgroundColor: COLORS.primary, alignItems: 'center', justifyContent: 'center', marginRight: 10 },
+  monogramText: { color: '#fff', fontSize: 12, fontWeight: 700, letterSpacing: 0.3 },
+  companyName: { fontSize: 10.5, fontWeight: 700, color: COLORS.ink, letterSpacing: 0.2 },
+  companyTagline: { fontSize: 6.5, color: COLORS.muted, letterSpacing: 0.4, marginTop: 2, textTransform: 'uppercase' },
+  dateBlock: { alignItems: 'flex-end' },
+  dateLabel: { fontSize: 6.5, color: COLORS.muted, textTransform: 'uppercase', letterSpacing: 0.5 },
+  dateValue: { fontSize: 9, fontWeight: 700, color: COLORS.ink, marginTop: 2 },
 
-  sectionHeading: { marginBottom: 10 },
-  sectionTitle: { fontSize: 8.5, fontWeight: 700, color: COLORS.primaryDark, textTransform: 'uppercase', letterSpacing: 0.8 },
-  sectionRule: { width: 26, height: 2, backgroundColor: COLORS.primary, marginTop: 4 },
-  section: { marginBottom: 18 },
+  headerRule: { height: 1.2, backgroundColor: COLORS.primary, marginTop: 16, marginBottom: 22 },
 
-  fieldGrid: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between' },
-  field: { width: '48%', marginBottom: 11 },
-  fieldLabel: { fontSize: 7, color: COLORS.muted, textTransform: 'uppercase', letterSpacing: 0.4, marginBottom: 2 },
-  fieldValue: { fontSize: 9.5, fontWeight: 700, color: COLORS.ink },
+  // Hero title
+  heroWrap: { alignItems: 'center', marginBottom: 20 },
+  heroEyebrow: { fontSize: 7.5, color: COLORS.primaryDark, letterSpacing: 2, textTransform: 'uppercase', fontWeight: 700 },
+  heroTitle: { fontSize: 21, fontWeight: 700, color: COLORS.ink, letterSpacing: 0.5, marginTop: 6, textTransform: 'uppercase' },
+  heroRule: { width: 40, height: 2, backgroundColor: COLORS.primary, marginTop: 10, marginBottom: 10 },
+  heroSubtitle: { fontSize: 8.5, color: COLORS.muted, textAlign: 'center', maxWidth: 360, lineHeight: 1.4 },
 
-  callout: { flexDirection: 'row', backgroundColor: COLORS.surfaceMuted, borderRadius: 4, padding: 12, marginBottom: 24 },
-  calloutBar: { width: 3, backgroundColor: COLORS.primary, borderRadius: 2, marginRight: 10 },
-  calloutText: { flex: 1, fontSize: 8.5, lineHeight: 1.55, color: COLORS.ink },
+  // Info strip
+  infoStrip: { flexDirection: 'row', borderWidth: 1, borderColor: COLORS.border, borderRadius: 3, marginBottom: 26 },
+  infoStripItem: { flex: 1, alignItems: 'center', paddingVertical: 13, paddingHorizontal: 6 },
+  infoStripDivider: { width: 1, backgroundColor: COLORS.border },
+  infoStripLabel: { fontSize: 6.5, color: COLORS.muted, textTransform: 'uppercase', letterSpacing: 0.6, marginBottom: 5 },
+  infoStripValue: { fontSize: 11, fontWeight: 700, color: COLORS.ink },
+  statusPill: { borderRadius: 9, paddingVertical: 3, paddingHorizontal: 10 },
+  statusPillText: { fontSize: 8.5, fontWeight: 700, textTransform: 'capitalize' },
 
-  signatureRow: { flexDirection: 'row', justifyContent: 'space-between' },
-  signatureBlock: { width: '47%' },
-  signatureLine: { borderTopWidth: 1, borderTopColor: COLORS.muted, marginBottom: 6 },
-  signatureCaption: { fontSize: 7.5, color: COLORS.muted },
+  // Numbered sections
+  section: { marginBottom: 20 },
+  sectionHeadingRow: { flexDirection: 'row', alignItems: 'center', marginBottom: 9 },
+  sectionNumberBadge: { width: 16, height: 16, borderRadius: 3, backgroundColor: COLORS.primary, alignItems: 'center', justifyContent: 'center', marginRight: 8 },
+  sectionNumberText: { fontSize: 8, fontWeight: 700, color: '#fff' },
+  sectionHeadingText: { fontSize: 9.5, fontWeight: 700, color: COLORS.ink, textTransform: 'uppercase', letterSpacing: 0.7 },
 
-  sidebar: {
-    width: 150,
-    backgroundColor: COLORS.surfaceMuted,
-    borderRadius: 8,
-    padding: 14,
-  },
-  sidebarLabel: { fontSize: 7, color: COLORS.muted, textTransform: 'uppercase', letterSpacing: 0.5, marginBottom: 6 },
-  sidebarDivider: { height: 1, backgroundColor: COLORS.border, marginVertical: 14 },
-  statusPill: { alignSelf: 'flex-start', borderRadius: 10, paddingVertical: 4, paddingHorizontal: 9 },
-  statusPillText: { fontSize: 8, fontWeight: 700, textTransform: 'capitalize' },
-  trackingCode: { fontSize: 11.5, fontWeight: 700, color: COLORS.ink, letterSpacing: 0.3 },
-  qrWrap: { alignItems: 'center' },
-  qrImage: { width: 84, height: 84 },
-  qrCaption: { fontSize: 7, color: COLORS.muted, marginTop: 6, textAlign: 'center' },
-  issuedLabel: { fontSize: 7, color: COLORS.muted, textTransform: 'uppercase', letterSpacing: 0.5, marginBottom: 3 },
-  issuedValue: { fontSize: 8.5, color: COLORS.ink, fontWeight: 700 },
+  table: { borderWidth: 1, borderColor: COLORS.border, borderRadius: 2 },
+  tableRow: { flexDirection: 'row', borderBottomWidth: 1, borderBottomColor: COLORS.border },
+  tableRowLast: { borderBottomWidth: 0 },
+  tableRowAlt: { backgroundColor: COLORS.surfaceMuted },
+  tableLabelCell: { width: '34%', paddingVertical: 7, paddingHorizontal: 10, borderRightWidth: 1, borderRightColor: COLORS.border, justifyContent: 'center' },
+  tableLabelText: { fontSize: 7.5, color: COLORS.muted, textTransform: 'uppercase', letterSpacing: 0.3 },
+  tableValueCell: { flex: 1, paddingVertical: 7, paddingHorizontal: 10, justifyContent: 'center' },
+  tableValueText: { fontSize: 9, fontWeight: 700, color: COLORS.ink },
 
-  footer: {
-    position: 'absolute',
-    bottom: 22,
-    left: 36,
-    right: 36,
-    borderTopWidth: 1,
-    borderTopColor: COLORS.border,
-    paddingTop: 8,
-    fontSize: 7.5,
-    color: COLORS.muted,
-    textAlign: 'center',
-  },
+  // Terms box
+  termsBox: { borderWidth: 1, borderColor: COLORS.border, borderRadius: 2, padding: 14 },
+  termsHeading: { fontSize: 8, fontWeight: 700, color: COLORS.primaryDark, textTransform: 'uppercase', letterSpacing: 0.6, marginBottom: 8 },
+  termsText: { fontSize: 8.5, lineHeight: 1.6, color: COLORS.ink, textAlign: 'justify' },
+
+  // Signatures + verification
+  bottomRow: { flexDirection: 'row', justifyContent: 'space-between', marginTop: 24 },
+  sigBlock: { width: '31%' },
+  sigBlockTitle: { fontSize: 7.5, fontWeight: 700, color: COLORS.ink, textTransform: 'uppercase', letterSpacing: 0.4, marginBottom: 10 },
+  sigLineRow: { flexDirection: 'row', alignItems: 'flex-end', marginBottom: 10 },
+  sigLineLabel: { fontSize: 7.5, color: COLORS.muted, width: 46 },
+  sigLineBlank: { flex: 1, borderBottomWidth: 1, borderBottomColor: COLORS.muted, height: 12 },
+
+  verifyBox: { width: '31%', borderWidth: 1, borderStyle: 'dashed', borderColor: COLORS.border, borderRadius: 3, padding: 10, alignItems: 'center' },
+  verifyTitle: { fontSize: 7, fontWeight: 700, color: COLORS.primaryDark, textTransform: 'uppercase', letterSpacing: 0.5, marginBottom: 8 },
+  qrImage: { width: 64, height: 64 },
+  verifyCode: { fontSize: 7.5, fontWeight: 700, color: COLORS.ink, marginTop: 8 },
+  verifyCaption: { fontSize: 6, color: COLORS.muted, marginTop: 3, textAlign: 'center' },
+
+  // Footer
+  footerRule: { height: 1, backgroundColor: COLORS.border, marginTop: 24, marginBottom: 10 },
+  footerLine: { fontSize: 7.5, color: COLORS.muted, textAlign: 'center' },
+  footerNote: { fontSize: 6.5, color: COLORS.muted, textAlign: 'center', marginTop: 4, fontStyle: 'italic' },
 });
 
-const DOC_TYPE_LABEL = {
+const DOC_TYPE_TITLE = {
   custody_receipt: 'Custody Receipt',
   service_confirmation: 'Service Confirmation',
 };
 
-function Letterhead({ docType }) {
+const DOC_TYPE_SUBTITLE = {
+  custody_receipt:
+    'This document certifies that the goods described below have been received into the custody of Northbridge Frontier Services Ltd under the terms stated.',
+  service_confirmation:
+    'This document confirms the service particulars agreed between the client and Northbridge Frontier Services Ltd as described below.',
+};
+
+function Header({ issuedDate }) {
   return (
     <>
-      <View style={styles.letterhead}>
-        <View>
-          <Text style={styles.companyName}>{COMPANY_NAME}</Text>
-          <Text style={styles.companyTagline}>Security Services — Kampala, Uganda</Text>
+      <View style={styles.headerRow}>
+        <View style={styles.monogramRow}>
+          <View style={styles.monogram}>
+            <Text style={styles.monogramText}>NB</Text>
+          </View>
+          <View>
+            <Text style={styles.companyName}>{COMPANY_NAME}</Text>
+            <Text style={styles.companyTagline}>Security Services — Kampala, Uganda</Text>
+          </View>
         </View>
-        <View style={styles.docTypeBadge}>
-          <Text style={styles.docTypeBadgeText}>{DOC_TYPE_LABEL[docType]}</Text>
+        <View style={styles.dateBlock}>
+          <Text style={styles.dateLabel}>Date Issued</Text>
+          <Text style={styles.dateValue}>{issuedDate}</Text>
         </View>
       </View>
-      <View style={styles.letterheadRule} />
+      <View style={styles.headerRule} />
     </>
   );
 }
 
-function SectionHeading({ title }) {
+function HeroTitle({ docType }) {
   return (
-    <View style={styles.sectionHeading}>
-      <Text style={styles.sectionTitle}>{title}</Text>
-      <View style={styles.sectionRule} />
+    <View style={styles.heroWrap}>
+      <Text style={styles.heroEyebrow}>Official Document</Text>
+      <Text style={styles.heroTitle}>{DOC_TYPE_TITLE[docType]}</Text>
+      <View style={styles.heroRule} />
+      <Text style={styles.heroSubtitle}>{DOC_TYPE_SUBTITLE[docType]}</Text>
     </View>
   );
 }
 
-function Field({ label, value }) {
-  if (!value) return null;
-  return (
-    <View style={styles.field}>
-      <Text style={styles.fieldLabel}>{label}</Text>
-      <Text style={styles.fieldValue}>{value}</Text>
-    </View>
-  );
-}
-
-function Callout({ children }) {
-  return (
-    <View style={styles.callout}>
-      <View style={styles.calloutBar} />
-      <Text style={styles.calloutText}>{children}</Text>
-    </View>
-  );
-}
-
-function SignatureRow() {
-  return (
-    <View style={styles.signatureRow}>
-      <View style={styles.signatureBlock}>
-        <View style={styles.signatureLine} />
-        <Text style={styles.signatureCaption}>Authorised Signature — {COMPANY_NAME}</Text>
-      </View>
-      <View style={styles.signatureBlock}>
-        <View style={styles.signatureLine} />
-        <Text style={styles.signatureCaption}>Company Stamp</Text>
-      </View>
-    </View>
-  );
-}
-
-function Sidebar({ record, qrDataUrl }) {
+function InfoStrip({ record, thirdColumn }) {
   const statusColors = STATUS_COLORS[record.status] || STATUS_COLORS.pending_assessment;
   return (
-    <View style={styles.sidebar}>
-      <Text style={styles.sidebarLabel}>Status</Text>
-      <View style={[styles.statusPill, { backgroundColor: statusColors.bg }]}>
-        <Text style={[styles.statusPillText, { color: statusColors.color }]}>
-          {clientStatusLabel(record.status, record.service_type)}
-        </Text>
+    <View style={styles.infoStrip}>
+      <View style={styles.infoStripItem}>
+        <Text style={styles.infoStripLabel}>Tracking Number</Text>
+        <Text style={styles.infoStripValue}>{record.tracking_number}</Text>
       </View>
+      <View style={styles.infoStripDivider} />
+      <View style={styles.infoStripItem}>
+        <Text style={styles.infoStripLabel}>Status</Text>
+        <View style={[styles.statusPill, { backgroundColor: statusColors.bg }]}>
+          <Text style={[styles.statusPillText, { color: statusColors.color }]}>
+            {clientStatusLabel(record.status, record.service_type)}
+          </Text>
+        </View>
+      </View>
+      <View style={styles.infoStripDivider} />
+      <View style={styles.infoStripItem}>
+        <Text style={styles.infoStripLabel}>{thirdColumn.label}</Text>
+        <Text style={styles.infoStripValue}>{thirdColumn.value}</Text>
+      </View>
+    </View>
+  );
+}
 
-      <View style={styles.sidebarDivider} />
-
-      <Text style={styles.sidebarLabel}>Tracking Number</Text>
-      <Text style={styles.trackingCode}>{record.tracking_number}</Text>
-
-      {qrDataUrl && (
-        <>
-          <View style={styles.sidebarDivider} />
-          <View style={styles.qrWrap}>
-            <Image src={qrDataUrl} style={styles.qrImage} />
-            <Text style={styles.qrCaption}>Scan to verify status online</Text>
+function SectionTable({ number, title, rows }) {
+  const visibleRows = rows.filter(([, value]) => value);
+  if (visibleRows.length === 0) return null;
+  return (
+    <View style={styles.section}>
+      <View style={styles.sectionHeadingRow}>
+        <View style={styles.sectionNumberBadge}>
+          <Text style={styles.sectionNumberText}>{number}</Text>
+        </View>
+        <Text style={styles.sectionHeadingText}>{title}</Text>
+      </View>
+      <View style={styles.table}>
+        {visibleRows.map(([label, value], i) => (
+          <View
+            key={label}
+            style={[
+              styles.tableRow,
+              i % 2 === 1 && styles.tableRowAlt,
+              i === visibleRows.length - 1 && styles.tableRowLast,
+            ]}
+          >
+            <View style={styles.tableLabelCell}>
+              <Text style={styles.tableLabelText}>{label}</Text>
+            </View>
+            <View style={styles.tableValueCell}>
+              <Text style={styles.tableValueText}>{value}</Text>
+            </View>
           </View>
-        </>
-      )}
+        ))}
+      </View>
+    </View>
+  );
+}
 
-      <View style={styles.sidebarDivider} />
+function TermsBox({ heading, children }) {
+  return (
+    <View style={styles.termsBox}>
+      <Text style={styles.termsHeading}>{heading}</Text>
+      <Text style={styles.termsText}>{children}</Text>
+    </View>
+  );
+}
 
-      <Text style={styles.issuedLabel}>Issued</Text>
-      <Text style={styles.issuedValue}>{new Date(record.created_at).toLocaleDateString()}</Text>
+function SignatureBlock({ title }) {
+  return (
+    <View style={styles.sigBlock}>
+      <Text style={styles.sigBlockTitle}>{title}</Text>
+      <View style={styles.sigLineRow}>
+        <Text style={styles.sigLineLabel}>Name</Text>
+        <View style={styles.sigLineBlank} />
+      </View>
+      <View style={styles.sigLineRow}>
+        <Text style={styles.sigLineLabel}>Signature</Text>
+        <View style={styles.sigLineBlank} />
+      </View>
+      <View style={styles.sigLineRow}>
+        <Text style={styles.sigLineLabel}>Date</Text>
+        <View style={styles.sigLineBlank} />
+      </View>
+    </View>
+  );
+}
+
+function VerificationBox({ record, qrDataUrl }) {
+  return (
+    <View style={styles.verifyBox}>
+      <Text style={styles.verifyTitle}>Official Verification</Text>
+      {qrDataUrl && <Image src={qrDataUrl} style={styles.qrImage} />}
+      <Text style={styles.verifyCode}>{record.tracking_number}</Text>
+      <Text style={styles.verifyCaption}>Scan to verify this document&apos;s status online</Text>
     </View>
   );
 }
 
 function Footer() {
   return (
-    <Text style={styles.footer} fixed>
-      {COMPANY_NAME} · {CONTACT_PHONE_DISPLAY} · {CONTACT_EMAIL}
-    </Text>
+    <>
+      <View style={styles.footerRule} />
+      <Text style={styles.footerLine}>
+        {COMPANY_NAME} · {CONTACT_PHONE_DISPLAY} · {CONTACT_EMAIL}
+      </Text>
+      <Text style={styles.footerNote}>
+        This is a system-generated document issued by {COMPANY_NAME}. No signature is required
+        for validity unless stated above.
+      </Text>
+    </>
   );
 }
 
 export function CustodyReceipt({ record, client, qrDataUrl }) {
   const d = record.details || {};
+  const issuedDate = new Date(record.created_at).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+
   return (
     <Document>
       <Page size="A4" style={styles.page}>
         <View style={styles.topBar} />
-        <View style={styles.body}>
-          <Letterhead docType="custody_receipt" />
+        <View style={styles.frame}>
+          <Header issuedDate={issuedDate} />
+          <HeroTitle docType="custody_receipt" />
+          <InfoStrip record={record} thirdColumn={{ label: 'Consignment Ref.', value: d.consignment_ref || '—' }} />
 
-          <View style={styles.columns}>
-            <View style={styles.leftCol}>
-              <View style={styles.section}>
-                <SectionHeading title="Depositor" />
-                <View style={styles.fieldGrid}>
-                  <Field label="Full Name" value={client.full_name} />
-                  <Field label="Phone" value={client.phone} />
-                  <Field label="ID" value={`${client.id_type?.replace('_', ' ')} — ${client.id_number}`} />
-                </View>
+          <SectionTable
+            number="1"
+            title="Depositor Information"
+            rows={[
+              ['Full Name', client.full_name],
+              ['Phone', client.phone],
+              ['Identification', `${client.id_type?.replace('_', ' ')} — ${client.id_number}`],
+              ['Email', client.email],
+              ['Address', client.address],
+            ]}
+          />
+
+          <SectionTable
+            number="2"
+            title="Goods in Custody"
+            rows={[
+              ['Commodity / Description', d.commodity],
+              ['Quantity', d.quantity],
+              ['Declared Value', d.declared_value],
+              ['Charge Rate', d.charge_rate],
+              ['Storage Start', d.storage_start_date],
+              ['Storage End', d.storage_end_date],
+              ['Release Authorised To', d.release_authorized_persons],
+              ['Insurance Notes', d.insurance_notes],
+            ]}
+          />
+
+          <View style={{ marginBottom: 24 }}>
+            <View style={styles.sectionHeadingRow}>
+              <View style={styles.sectionNumberBadge}>
+                <Text style={styles.sectionNumberText}>3</Text>
               </View>
-
-              <View style={styles.section}>
-                <SectionHeading title="Goods in Custody" />
-                <View style={styles.fieldGrid}>
-                  <Field label="Commodity / Description" value={d.commodity} />
-                  <Field label="Quantity" value={d.quantity} />
-                  <Field label="Declared Value" value={d.declared_value} />
-                  <Field label="Consignment Reference" value={d.consignment_ref} />
-                  <Field label="Charge Rate" value={d.charge_rate} />
-                  <Field label="Storage Start" value={d.storage_start_date} />
-                  <Field label="Storage End" value={d.storage_end_date} />
-                  <Field label="Release Authorised To" value={d.release_authorized_persons} />
-                  <Field label="Insurance Notes" value={d.insurance_notes} />
-                </View>
-              </View>
-
-              <Callout>
-                The above-described goods have been received into {COMPANY_NAME}&apos;s custody
-                under the terms agreed with the depositor at the time of registration. This
-                receipt confirms custody only and does not constitute a valuation or insurance
-                certificate unless separately stated above. Release of the goods will only be
-                made to the person(s) authorised above, upon presentation of this receipt or the
-                tracking number together with valid identification.
-              </Callout>
-
-              <SignatureRow />
+              <Text style={styles.sectionHeadingText}>Terms of Custody</Text>
             </View>
-
-            <Sidebar record={record} qrDataUrl={qrDataUrl} />
+            <TermsBox heading="Custody Statement">
+              The above-described goods have been received into {COMPANY_NAME}&apos;s custody
+              under the terms agreed with the depositor at the time of registration. This receipt
+              confirms custody only and does not constitute a valuation or insurance certificate
+              unless separately stated above. The goods will be released only to the person(s)
+              authorised above, upon presentation of this receipt or the tracking number together
+              with valid identification. {COMPANY_NAME} shall not be liable for loss or damage
+              arising from inaccurate description of the goods by the depositor.
+            </TermsBox>
           </View>
+
+          <View style={styles.bottomRow}>
+            <SignatureBlock title="Depositor" />
+            <SignatureBlock title={`Authorised Officer\n— ${COMPANY_NAME}`} />
+            <VerificationBox record={record} qrDataUrl={qrDataUrl} />
+          </View>
+
+          <Footer />
         </View>
-        <Footer />
+        <View style={styles.bottomBar} fixed />
       </Page>
     </Document>
   );
@@ -272,47 +352,55 @@ const SUMMARY_FIELDS = {
 export function ServiceConfirmation({ record, client, qrDataUrl }) {
   const d = record.details || {};
   const fields = SUMMARY_FIELDS[record.service_type] || [];
+  const issuedDate = new Date(record.created_at).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+
   return (
     <Document>
       <Page size="A4" style={styles.page}>
         <View style={styles.topBar} />
-        <View style={styles.body}>
-          <Letterhead docType="service_confirmation" />
+        <View style={styles.frame}>
+          <Header issuedDate={issuedDate} />
+          <HeroTitle docType="service_confirmation" />
+          <InfoStrip record={record} thirdColumn={{ label: 'Service Type', value: serviceLabel(record.service_type) }} />
 
-          <View style={styles.columns}>
-            <View style={styles.leftCol}>
-              <View style={styles.section}>
-                <SectionHeading title="Client" />
-                <View style={styles.fieldGrid}>
-                  <Field label="Full Name" value={client.full_name} />
-                  <Field label="Phone" value={client.phone} />
-                  <Field label="ID" value={`${client.id_type?.replace('_', ' ')} — ${client.id_number}`} />
-                </View>
+          <SectionTable
+            number="1"
+            title="Client Information"
+            rows={[
+              ['Full Name', client.full_name],
+              ['Phone', client.phone],
+              ['Identification', `${client.id_type?.replace('_', ' ')} — ${client.id_number}`],
+              ['Email', client.email],
+              ['Address', client.address],
+            ]}
+          />
+
+          <SectionTable number="2" title={serviceLabel(record.service_type)} rows={fields.map(([key, label]) => [label, d[key]])} />
+
+          <View style={{ marginBottom: 24 }}>
+            <View style={styles.sectionHeadingRow}>
+              <View style={styles.sectionNumberBadge}>
+                <Text style={styles.sectionNumberText}>3</Text>
               </View>
-
-              <View style={styles.section}>
-                <SectionHeading title={serviceLabel(record.service_type)} />
-                <View style={styles.fieldGrid}>
-                  {fields.map(([key, label]) => (
-                    <Field key={key} label={label} value={d[key]} />
-                  ))}
-                </View>
-              </View>
-
-              <Callout>
-                This document confirms the service particulars above as agreed between the client
-                and {COMPANY_NAME}. Any change to schedule, personnel, or scope will be reflected
-                in an updated confirmation. For questions about this service, quote the tracking
-                number on this document.
-              </Callout>
-
-              <SignatureRow />
+              <Text style={styles.sectionHeadingText}>Terms of Service</Text>
             </View>
-
-            <Sidebar record={record} qrDataUrl={qrDataUrl} />
+            <TermsBox heading="Confirmation Statement">
+              This document confirms the service particulars above as agreed between the client
+              and {COMPANY_NAME}. Any change to schedule, personnel, or scope will be reflected in
+              an updated confirmation superseding this one. For any query regarding this service,
+              please quote the tracking number shown above when contacting our office.
+            </TermsBox>
           </View>
+
+          <View style={styles.bottomRow}>
+            <SignatureBlock title="Client" />
+            <SignatureBlock title={`Authorised Officer\n— ${COMPANY_NAME}`} />
+            <VerificationBox record={record} qrDataUrl={qrDataUrl} />
+          </View>
+
+          <Footer />
         </View>
-        <Footer />
+        <View style={styles.bottomBar} fixed />
       </Page>
     </Document>
   );
