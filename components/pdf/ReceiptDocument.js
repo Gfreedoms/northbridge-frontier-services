@@ -186,7 +186,7 @@ function SectionTable({ number, title, rows }) {
   const visibleRows = rows.filter(([, value]) => value);
   if (visibleRows.length === 0) return null;
   return (
-    <View style={styles.section} wrap={false}>
+    <View style={styles.section}>
       <View style={styles.sectionHeadingRow}>
         <View style={styles.sectionNumberBadge}>
           <Text style={styles.sectionNumberText}>{number}</Text>
@@ -218,7 +218,7 @@ function SectionTable({ number, title, rows }) {
 
 function TermsBox({ heading, children }) {
   return (
-    <View style={styles.termsBox} wrap={false}>
+    <View style={styles.termsBox}>
       <Text style={styles.termsHeading}>{heading}</Text>
       <Text style={styles.termsText}>{children}</Text>
     </View>
@@ -258,7 +258,7 @@ function VerificationBox({ record, qrDataUrl }) {
 
 function Footer() {
   return (
-    <View wrap={false}>
+    <View>
       <View style={styles.footerRule} />
       <Text style={styles.footerLine}>
         {COMPANY_NAME} · {CONTACT_PHONE_DISPLAY} · {CONTACT_EMAIL}
@@ -311,7 +311,7 @@ export function CustodyReceipt({ record, client, qrDataUrl }) {
             ]}
           />
 
-          <View style={{ marginBottom: 16 }} wrap={false}>
+          <View style={{ marginBottom: 16 }}>
             <View style={styles.sectionHeadingRow}>
               <View style={styles.sectionNumberBadge}>
                 <Text style={styles.sectionNumberText}>3</Text>
@@ -329,7 +329,7 @@ export function CustodyReceipt({ record, client, qrDataUrl }) {
             </TermsBox>
           </View>
 
-          <View style={styles.bottomRow} wrap={false}>
+          <View style={styles.bottomRow}>
             <SignatureBlock title="Depositor" />
             <SignatureBlock title={`Authorised Officer\n— ${COMPANY_NAME}`} />
             <VerificationBox record={record} qrDataUrl={qrDataUrl} />
@@ -378,7 +378,7 @@ export function ServiceConfirmation({ record, client, qrDataUrl }) {
 
           <SectionTable number="2" title={serviceLabel(record.service_type)} rows={fields.map(([key, label]) => [label, d[key]])} />
 
-          <View style={{ marginBottom: 16 }} wrap={false}>
+          <View style={{ marginBottom: 16 }}>
             <View style={styles.sectionHeadingRow}>
               <View style={styles.sectionNumberBadge}>
                 <Text style={styles.sectionNumberText}>3</Text>
@@ -393,7 +393,7 @@ export function ServiceConfirmation({ record, client, qrDataUrl }) {
             </TermsBox>
           </View>
 
-          <View style={styles.bottomRow} wrap={false}>
+          <View style={styles.bottomRow}>
             <SignatureBlock title="Client" />
             <SignatureBlock title={`Authorised Officer\n— ${COMPANY_NAME}`} />
             <VerificationBox record={record} qrDataUrl={qrDataUrl} />
