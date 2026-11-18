@@ -29,7 +29,6 @@ const STATUS_COLORS = {
 const styles = StyleSheet.create({
   page: { fontSize: 9.5, color: COLORS.ink, fontFamily: 'Helvetica' },
   topBar: { height: 8, backgroundColor: COLORS.primary },
-  bottomBar: { height: 4, backgroundColor: COLORS.primary, position: 'absolute', bottom: 0, left: 0, right: 0 },
 
   frame: {
     margin: 22,
@@ -338,7 +337,6 @@ export function CustodyReceipt({ record, client, qrDataUrl }) {
 
           <Footer />
         </View>
-        <View style={styles.bottomBar} fixed />
       </Page>
     </Document>
   );
@@ -403,7 +401,6 @@ export function ServiceConfirmation({ record, client, qrDataUrl }) {
 
           <Footer />
         </View>
-        <View style={styles.bottomBar} fixed />
       </Page>
     </Document>
   );
