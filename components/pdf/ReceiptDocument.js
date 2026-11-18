@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
   topBar: { height: 8, backgroundColor: COLORS.primary },
 
   frame: {
-    margin: 18,
+    margin: 14,
     borderWidth: 1.2,
     borderColor: COLORS.border,
     padding: 20,
@@ -48,10 +48,10 @@ const styles = StyleSheet.create({
   dateLabel: { fontSize: 6.5, color: COLORS.muted, textTransform: 'uppercase', letterSpacing: 0.5 },
   dateValue: { fontSize: 9, fontWeight: 700, color: COLORS.ink, marginTop: 2 },
 
-  headerRule: { height: 1.2, backgroundColor: COLORS.primary, marginTop: 12, marginBottom: 16 },
+  headerRule: { height: 1.2, backgroundColor: COLORS.primary, marginTop: 8, marginBottom: 12 },
 
   // Hero title
-  heroWrap: { alignItems: 'center', marginBottom: 14 },
+  heroWrap: { alignItems: 'center', marginBottom: 10 },
   heroEyebrow: { fontSize: 7.5, color: COLORS.primaryDark, letterSpacing: 2, textTransform: 'uppercase', fontWeight: 700 },
   heroTitle: { fontSize: 19, fontWeight: 700, color: COLORS.ink, letterSpacing: 0.5, marginTop: 5, textTransform: 'uppercase' },
   heroRule: { width: 36, height: 2, backgroundColor: COLORS.primary, marginTop: 8, marginBottom: 8 },
@@ -67,8 +67,8 @@ const styles = StyleSheet.create({
   statusPillText: { fontSize: 8.5, fontWeight: 700, textTransform: 'capitalize' },
 
   // Numbered sections
-  section: { marginBottom: 14 },
-  sectionHeadingRow: { flexDirection: 'row', alignItems: 'center', marginBottom: 7 },
+  section: { marginBottom: 10 },
+  sectionHeadingRow: { flexDirection: 'row', alignItems: 'center', marginBottom: 5 },
   sectionNumberBadge: { width: 16, height: 16, borderRadius: 3, backgroundColor: COLORS.primary, alignItems: 'center', justifyContent: 'center', marginRight: 8 },
   sectionNumberText: { fontSize: 8, fontWeight: 700, color: '#fff' },
   sectionHeadingText: { fontSize: 9.5, fontWeight: 700, color: COLORS.ink, textTransform: 'uppercase', letterSpacing: 0.7 },
@@ -107,7 +107,6 @@ const styles = StyleSheet.create({
   // trailing page even when everything actually fit on page one.)
   footerRule: { height: 1, backgroundColor: COLORS.border, marginTop: 10, marginBottom: 5 },
   footerLine: { fontSize: 7.5, color: COLORS.muted, textAlign: 'center' },
-  footerNote: { fontSize: 6.5, color: COLORS.muted, textAlign: 'center', marginTop: 3, fontStyle: 'italic' },
 });
 
 const DOC_TYPE_TITLE = {
@@ -261,11 +260,7 @@ function Footer() {
     <View>
       <View style={styles.footerRule} />
       <Text style={styles.footerLine}>
-        {COMPANY_NAME} · {CONTACT_PHONE_DISPLAY} · {CONTACT_EMAIL}
-      </Text>
-      <Text style={styles.footerNote}>
-        This is a system-generated document issued by {COMPANY_NAME}. No signature is required
-        for validity unless stated above.
+        {COMPANY_NAME} · {CONTACT_PHONE_DISPLAY} · {CONTACT_EMAIL} · System-generated document
       </Text>
     </View>
   );
